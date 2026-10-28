@@ -1531,3 +1531,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   45% { transform: scale(1.45); background: #FF5A68; box-shadow: 0 0 0 6px rgba(229,64,80,.32), 0 0 14px 2px rgba(229,64,80,.9); }
   100% { transform: scale(1); background: var(--red); box-shadow: 0 0 0 4px #17181B, 0 0 6px rgba(229,64,80,.45); }
 }
+
+/* Service pages: sit the surge line inside the paper strip, clear of the hero's red border */
+.service-page .coverage { border-top: 0; padding-top: 30px; }
+.service-page .coverage__line.has-reveal::before { background: #CFCBC4; }
