@@ -1457,6 +1457,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .qb-srv-btn { min-height: 82px; }
   .qb-srv-btn__name { font-size: .82rem; }
 
+}
 /* Electric-current reveal reused across key facts, process steps and service cards */
 .coverage__line.has-reveal::before,
 .process__steps.has-reveal::before { height: 2px; top: -1px; }
