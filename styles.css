@@ -442,7 +442,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 }
 .service-icon-library { position: absolute; width: 0; height: 0; overflow: hidden; }
 .diag-tile__icon {
-  display: block;
+  display: none;
   width: 30px;
   height: 30px;
   margin-bottom: 12px;
@@ -1057,7 +1057,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
     min-height: 280px;
     border-bottom: 2px solid var(--red);
   }
-  .diag-tile__icon { width: 26px; height: 26px; margin-bottom: 8px; }
+  .diag-tile__icon { display: block; width: 26px; height: 26px; margin-bottom: 8px; }
   .diag-tile__inner {
     position: relative;
     left: auto !important;
