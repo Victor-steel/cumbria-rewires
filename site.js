@@ -50,11 +50,19 @@
 
 // Staggered bit-by-bit reveal for Qualifications & Standards (.trust__row)
 (function () {
-  var rows = document.querySelectorAll('.trust__row');
+  // Service-page card grids use inline styles, so tag them here
+  document.querySelectorAll('.services .wrap > div[style*="grid-template-columns"]').forEach(function (g) {
+    g.classList.add('card-grid');
+  });
+
+  var rows = document.querySelectorAll('.trust__row, .coverage__line, .process__steps, .card-grid');
   if (!rows.length || !('IntersectionObserver' in window)) return;
 
   rows.forEach(function (row) {
     row.classList.add('has-reveal');
+    var kids = row.classList.contains('process__steps') ? row.querySelectorAll('.step') :
+      row.classList.contains('card-grid') ? row.children : row.children;
+    Array.prototype.forEach.call(kids, function (k, i) { k.style.setProperty('--i', i % 4); });
   });
 
   var rowObserver = new IntersectionObserver(function (entries) {
