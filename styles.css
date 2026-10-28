@@ -1474,7 +1474,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 
 .coverage__line.has-reveal li,
 .process__steps.has-reveal .step,
-.card-grid.has-reveal > div {
+.card-grid.has-reveal > * {
   opacity: 0; transform: translateY(20px);
   transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);
   transition-delay: calc(var(--i, 0) * .22s + .04s);
@@ -1482,25 +1482,52 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .coverage__line.has-reveal li::before { transform: scale(0); z-index: 2; }
 .coverage__line.has-reveal.is-visible li,
 .process__steps.has-reveal.is-visible .step,
-.card-grid.has-reveal.is-visible > div { opacity: 1; transform: none; }
+.card-grid.has-reveal.is-visible > * { opacity: 1; transform: none; }
 .coverage__line.has-reveal.is-visible li::before {
   animation: node-spark .6s cubic-bezier(.22,1,.36,1) forwards;
   animation-delay: calc(var(--i, 0) * .22s + .04s);
 }
 
 /* Service cards: top edge energises as the current passes */
-.card-grid.has-reveal > div { position: relative; border-top-color: var(--line) !important; }
-.card-grid.has-reveal > div::after {
+.card-grid.has-reveal > * { position: relative; border-top-color: var(--line) !important; }
+.card-grid.has-reveal > *::after {
   content: ""; position: absolute; left: -1px; right: -1px; top: -3px; height: 3px; pointer-events: none;
   background: linear-gradient(90deg, var(--red) 0%, var(--red) 80%, #FF6B78 95%, #fff 100%);
   box-shadow: 0 0 10px rgba(229,64,80,.8);
   clip-path: inset(-8px 100% -8px 0);
 }
-.card-grid.has-reveal.is-visible > div::after {
+.card-grid.has-reveal.is-visible > *::after {
   animation: card-surge .8s cubic-bezier(.25,.46,.45,.94) forwards;
   animation-delay: calc(var(--i, 0) * .22s + .04s);
 }
 @keyframes card-surge {
   0% { clip-path: inset(-8px 100% -8px 0); box-shadow: 0 0 10px rgba(229,64,80,.9); }
   100% { clip-path: inset(-8px 0 -8px 0); box-shadow: 0 0 0 rgba(229,64,80,0); }
+}
+
+/* Service-page process steps (dark): surge line + sparking nodes */
+.service-steps { position: relative; }
+.service-steps.has-reveal::after {
+  content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px; pointer-events: none;
+  background: linear-gradient(90deg, rgba(229,64,80,.35) 0%, var(--red) 78%, #FF6B78 95%, #fff 100%);
+  box-shadow: 0 0 10px rgba(229,64,80,.85), 0 0 4px rgba(255,90,104,.9);
+  clip-path: inset(-8px 100% -8px 0); z-index: 1;
+}
+.service-steps.has-reveal.is-visible::after { animation: current-surge 1.15s cubic-bezier(.25,.46,.45,.94) forwards; }
+.service-steps.has-reveal article { position: relative; opacity: 0; transform: translateY(20px);
+  transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);
+  transition-delay: calc(var(--i, 0) * .4s + .04s); }
+.service-steps.has-reveal.is-visible article { opacity: 1; transform: none; }
+.service-steps.has-reveal article::before {
+  content: ""; position: absolute; top: -5px; left: 0; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--red); box-shadow: 0 0 0 4px #17181B; transform: scale(0); z-index: 2;
+}
+.service-steps.has-reveal.is-visible article::before {
+  animation: node-spark-dark .6s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay: calc(var(--i, 0) * .4s + .04s);
+}
+@keyframes node-spark-dark {
+  0% { transform: scale(0); background: #fff; box-shadow: 0 0 0 0 rgba(229,64,80,.9), 0 0 16px 4px #FF5A68; }
+  45% { transform: scale(1.45); background: #FF5A68; box-shadow: 0 0 0 6px rgba(229,64,80,.32), 0 0 14px 2px rgba(229,64,80,.9); }
+  100% { transform: scale(1); background: var(--red); box-shadow: 0 0 0 4px #17181B, 0 0 6px rgba(229,64,80,.45); }
 }

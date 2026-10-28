@@ -51,11 +51,11 @@
 // Staggered bit-by-bit reveal for Qualifications & Standards (.trust__row)
 (function () {
   // Service-page card grids use inline styles, so tag them here
-  document.querySelectorAll('.services .wrap > div[style*="grid-template-columns"]').forEach(function (g) {
+  document.querySelectorAll('.services .wrap > div[style*="grid-template-columns"], .service-cards').forEach(function (g) {
     g.classList.add('card-grid');
   });
 
-  var rows = document.querySelectorAll('.trust__row, .coverage__line, .process__steps, .card-grid');
+  var rows = document.querySelectorAll('.trust__row, .coverage__line, .process__steps, .card-grid, .service-steps');
   if (!rows.length || !('IntersectionObserver' in window)) return;
 
   rows.forEach(function (row) {
