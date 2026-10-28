@@ -1150,7 +1150,90 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .qb-service-grid, .qb-pills { grid-template-columns: 1fr; }
 }
 
+/* Phone and small-tablet layout. All desktop rules above remain unchanged. */
+@media (max-width: 860px) {
+  :root { --header-h: 82px; --pad: 22px; }
+  body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+  .site-header__inner { gap: 12px; }
+  .brand { width: min(66vw, 248px); flex-direction: column; align-items: flex-start; gap: 6px; }
+  .brand { text-decoration: none; }
+  .brand::after { content: "CUMBRIA REWIRES"; color: #D4D5D8; font: 500 9px/1.2 var(--mono); letter-spacing: .2em; }
+  .header-actions { display: none; }
+  .hero:has(.hero__media) { display: block; min-height: 0; }
+  .hero__inner { padding-block: 30px 24px; }
+  .hero__copy { max-width: none; }
+  .hero .eyebrow { font-size: .64rem; letter-spacing: .07em; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(2rem, 8.1vw, 3.3rem); line-height: 1.08; text-wrap: balance; }
+  .hero .lede { margin-top: 16px; font-size: 1rem; line-height: 1.55; max-width: 60ch; }
+  .hero__cta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 22px; }
+  .hero__cta .btn { min-width: 0; width: 100%; min-height: 50px; padding: 10px 8px; font-size: .88rem; line-height: 1.25; }
+  .hero__cta .btn:nth-child(2) { display: inline-flex; }
+  .hero__cta .btn:last-child { grid-column: 1 / -1; order: -1; background: var(--red-deep); border-color: var(--red-deep); color: white; }
+  .hero__cta .btn:first-child, .hero__cta .btn:nth-child(2) { background: transparent; color: var(--ink); border-color: var(--line); }
+  .hero__note { margin-top: 14px; font-size: .62rem; line-height: 1.5; letter-spacing: .025em; }
+  .hero__media { position: relative; inset: auto; width: 100%; height: clamp(180px, 48vw, 280px); margin-top: 0; }
+  .hero__media img { object-position: center 54%; }
+  .hero__bolt--h { height: 38px; }
+  .hero__tag { font-size: .58rem; }
+  .services-viewport__bar { padding-block: 32px 24px; }
+  .services-viewport__bar-inner { gap: 14px; }
+  .services-viewport .eyebrow { font-size: .62rem; letter-spacing: .06em; margin-bottom: 14px; }
+  .services-viewport__copy h2 { font-size: clamp(1.65rem, 6.5vw, 2.3rem); line-height: 1.14; text-wrap: balance; }
+  .services-viewport__note { font-size: .62rem; line-height: 1.6; text-align: left; }
+  .diagonal-deck { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 0 var(--pad) 10px; min-height: 0; overflow: visible; background: var(--charcoal); }
+  .diagonal-deck--row { border-top: 0; padding-bottom: 32px; }
+  .diag-tile { position: relative; inset: auto; width: 100%; height: auto; min-height: 112px; min-width: 0; clip-path: none !important; border: 1px solid #3B3D42; border-left: 3px solid var(--red); border-radius: 2px; }
+  .diag-tile__inner { position: relative; inset: auto; left: auto !important; width: 100% !important; height: auto; min-height: 112px; padding: 20px !important; justify-content: center; }
+  .diag-tile__content { width: 100%; }
+  .diag-tile h3 { font-size: 1.4rem; line-height: 1.15; padding-right: 12px; }
+  .diag-tile h3 br { display: initial; }
+  .diag-tile__cta { font-size: .64rem; letter-spacing: .06em; margin-top: 10px; width: 100%; justify-content: space-between; }
+  .diag-tile__arrow { font-size: 1.1rem; }
+  .diag-seam { display: none; }
+  .trust, .faqs, .quote, .process { padding-block: 42px; }
+  h2 { font-size: clamp(1.75rem, 6.8vw, 2.35rem); line-height: 1.12; }
+  .eyebrow { font-size: .65rem; letter-spacing: .07em; margin-bottom: 16px; }
+  .trace, .trace.is-struck { width: 30px; margin-right: 9px; opacity: 1; clip-path: none; animation: none; filter: none; }
+  .promise__inner { gap: 22px; }
+  .promise__quote { font-size: 1.13rem; line-height: 1.5; }
+  .promise__role { font-size: .66rem; }
+  .trust__row, .trust__row.has-reveal { margin-top: 28px; gap: 0; }
+  .trust__row.has-reveal::after { display: none; }
+  .trust__row.has-reveal li { opacity: 1; transform: none; animation: none; }
+  .trust__row li { padding-bottom: 24px; }
+  .trust__row li:last-child { padding-bottom: 0; }
+  .faqs__grid { gap: 24px; }
+  .faq-item summary { padding-block: 18px; font-size: 1rem; }
+  .quote__grid { gap: 26px; }
+  .quote__intro, .quote__actions, .form, .qb-service-grid > *, .field { min-width: 0; }
+  .quote__call, .quote__wa { padding: 16px; }
+  .quote__call-n { font-size: 1.65rem; }
+  .quote__card-badge { flex-shrink: 0; }
+  .form { padding: 24px 18px; }
+  .qb-service-grid, .qb-pills, .qb-done-actions, .field-row { grid-template-columns: minmax(0, 1fr); }
+  .qb-srv-btn { min-height: 68px; padding: 14px; }
+  .qb-srv-btn__name { font-size: 1rem; }
+  .qb-srv-btn__desc { font-size: .8rem; }
+  .field input, .field select, .field textarea { font-size: 16px; max-width: 100%; }
+  .qb-email-card__body { overflow-wrap: anywhere; }
+  .footer { padding-top: 36px; }
+  .footer__grid { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-bottom: 30px; }
+  .footer__brand img { width: 230px; }
+  .footer a { overflow-wrap: anywhere; }
+  .dock { gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: var(--charcoal); border-top: 2px solid var(--red); }
+  .dock .btn { min-height: 48px; padding: 8px 5px; font-size: .78rem; gap: 5px; background: transparent; color: white; border: 1px solid #595B61; }
+  .dock .btn:last-child { background: var(--red-deep); border-color: var(--red-deep); }
+  .dock .ico { width: 16px; height: 16px; }
+}
+
+@media (max-width: 360px) {
+  :root { --pad: 18px; }
+  .hero__cta { grid-template-columns: minmax(0, 1fr); }
+  .hero h1 { font-size: 1.95rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
