@@ -73,7 +73,7 @@
 // Interactive 3-Step Quote Builder -> Sleek Structured Email & WhatsApp Job Sheet
 (function () {
   var form = document.getElementById('quote-form');
-  if (!form) return;
+  if (!form || form.hasAttribute('data-service-form')) return;
 
   var SERVICES = [
     {
@@ -182,9 +182,9 @@
   };
 
   var STEP_LABELS = {
-    1: 'CHOOSE A SERVICE',
-    2: 'NARROW IT DOWN',
-    3: 'YOUR DETAILS',
+    1: 'STEP 1 OF 3',
+    2: 'STEP 2 OF 3',
+    3: 'STEP 3 OF 3',
     4: 'JOB SHEET GENERATED'
   };
 
@@ -202,8 +202,8 @@
     '  <!-- STEP 1: SERVICE SELECTION -->',
     '  <div class="qb-panel is-active" data-panel="1">',
     '    <div class="qb__head">',
-    '      <h3 class="qb__title">What do you need help with?</h3>',
-    '      <p class="qb__sub">Tap a service below and answer a few quick questions to build a clear job sheet for Finn.</p>',
+    '      <h3 class="qb__title">Start your enquiry</h3>',
+    '      <p class="qb__sub">Tap a service to start. Then answer a few quick questions and leave your contact details.</p>',
     '    </div>',
     '    <div class="qb-service-grid" id="qb-service-grid"></div>',
     '  </div>',
@@ -287,9 +287,10 @@
     serviceGrid.innerHTML = SERVICES.map(function (srv) {
       return [
         '<button type="button" class="qb-srv-btn" data-srv="' + srv.id + '">',
-        '  <span class="qb-srv-btn__top"><span class="qb-srv-btn__id">' + srv.icon + '</span><span class="qb-srv-btn__arrow">&rarr;</span></span>',
+        '  <span class="qb-srv-btn__top"><span class="qb-srv-btn__id">' + srv.icon + '</span></span>',
         '  <span class="qb-srv-btn__name">' + srv.name + '</span>',
         '  <span class="qb-srv-btn__desc">' + srv.desc + '</span>',
+        '  <span class="qb-srv-btn__start">Start enquiry <span class="qb-srv-btn__arrow" aria-hidden="true">&rarr;</span></span>',
         '</button>'
       ].join('');
     }).join('');

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,600;1,700;1,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=179370">
+  <link rel="stylesheet" href="styles.css?v=179374">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -80,8 +80,8 @@
           <p class="hero__note">Open from 8am every day &middot; Covering Cumbria</p>
         </div>
       </div>
-      <div class="hero__media" aria-hidden="false">
-        <img src="assets/hero-rewire.jpg" width="1536" height="1024" alt="Cables terminated in metal back boxes during a house rewire" fetchpriority="high">
+      <div class="hero__media hero__media--consumer-unit" aria-hidden="false">
+        <img src="assets/fg-consumer-unit.jpeg" width="1254" height="1254" alt="Close-up of a consumer unit with neatly routed wiring and protective devices" fetchpriority="high">
         <svg class="hero__bolt hero__bolt--v" viewBox="0 0 220 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
           <defs>
             <linearGradient id="bolt-v" x1="0.8" y1="0" x2="0.2" y2="1">
@@ -104,7 +104,6 @@
           <path fill="#FAF8F5" d="M0 0 H900 V11 L450 57 L468 23 L0 77 Z"/>
           <path fill="url(#bolt-h)" d="M0 76 L468 22 L450 56 L900 10 V14 L428 82 L446 48 L0 102 Z"/>
         </svg>
-        <span class="hero__tag">Stand-in photo</span>
       </div>
     </section>
 
@@ -121,6 +120,16 @@
       </div>
 
       <!-- ROW 1: 4 FULL-DESKTOP DIAGONAL PORTAL TILES -->
+      <svg class="service-icon-library" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="svc-rewire" viewBox="0 0 32 32"><path d="M7 4v8a5 5 0 0 0 10 0V4M12 17v11M23 4v24M20 8h6M20 22h6"/></symbol>
+        <symbol id="svc-partial" viewBox="0 0 32 32"><path d="M7 4v8a5 5 0 0 0 10 0V4M12 17v11M23 4v24M20 8h6M20 22h6"/><path d="m4 27 5-5"/></symbol>
+        <symbol id="svc-unit" viewBox="0 0 32 32"><rect x="5" y="3" width="22" height="26" rx="2"/><path d="M10 8v7M16 8v7M22 8v7M9 20h2M15 20h2M21 20h2"/></symbol>
+        <symbol id="svc-renovation" viewBox="0 0 32 32"><path d="M4 15 16 5l12 10M8 13v14h16V13M13 27v-8h6v8"/><path d="M23 5v5"/></symbol>
+        <symbol id="svc-build" viewBox="0 0 32 32"><path d="M4 28V8l12-5 12 5v20M4 12h24M10 12v16M22 12v16M4 20h24"/></symbol>
+        <symbol id="svc-ev" viewBox="0 0 32 32"><path d="M8 27V8a4 4 0 0 1 8 0v19M8 13h8M5 27h14M23 6l-5 10h5l-3 9 8-13h-5l3-6z"/></symbol>
+        <symbol id="svc-eicr" viewBox="0 0 32 32"><path d="M9 4h14l4 4v20H9zM23 4v5h4M13 14h10M13 18h10M13 22h5"/><path d="m5 8 2 2-2 2"/></symbol>
+        <symbol id="svc-fault" viewBox="0 0 32 32"><path d="m18 3-12 16h9l-1 10 12-17h-9z"/></symbol>
+      </svg>
       <div class="diagonal-deck">
         <!-- Tile 1: Full Rewires -->
         <a class="diag-tile diag-tile--1" href="full-rewires.html" aria-label="Full Rewires — view full page">
@@ -128,6 +137,7 @@
           <div class="diag-tile__overlay"></div>
           <div class="diag-tile__inner">
             <div class="diag-tile__content">
+              <svg class="diag-tile__icon" aria-hidden="true"><use href="#svc-rewire"/></svg>
               <h3>Full<br>Rewires</h3>
               <span class="diag-tile__cta">View full details <span class="diag-tile__arrow">&rarr;</span></span>
             </div>
@@ -140,6 +150,7 @@
           <div class="diag-tile__overlay"></div>
           <div class="diag-tile__inner">
             <div class="diag-tile__content">
+              <svg class="diag-tile__icon" aria-hidden="true"><use href="#svc-partial"/></svg>
               <h3>Partial<br>Rewires</h3>
               <span class="diag-tile__cta">View full details <span class="diag-tile__arrow">&rarr;</span></span>
             </div>
@@ -152,6 +163,7 @@
           <div class="diag-tile__overlay"></div>
           <div class="diag-tile__inner">
             <div class="diag-tile__content">
+              <svg class="diag-tile__icon" aria-hidden="true"><use href="#svc-unit"/></svg>
               <h3>Consumer<br>Units</h3>
               <span class="diag-tile__cta">View full details <span class="diag-tile__arrow">&rarr;</span></span>
             </div>
@@ -164,6 +176,7 @@
           <div class="diag-tile__overlay"></div>
           <div class="diag-tile__inner">
             <div class="diag-tile__content">
+              <svg class="diag-tile__icon" aria-hidden="true"><use href="#svc-renovation"/></svg>
               <h3>Extensions &amp;<br>Renovations</h3>
               <span class="diag-tile__cta">View full details <span class="diag-tile__arrow">&rarr;</span></span>
             </div>
@@ -210,6 +223,7 @@
           <div class="diag-tile__overlay"></div>
           <div class="diag-tile__inner">
             <div class="diag-tile__content">
+              <svg class="diag-tile__icon" aria-hidden="true"><use href="#svc-build"/></svg>
               <h3>New<br>Builds</h3>
               <span class="diag-tile__cta">View full details <span class="diag-tile__arrow">&rarr;</span></span>
             </div>
@@ -222,6 +236,7 @@
           <div class="diag-tile__overlay"></div>
           <div class="diag-tile__inner">
             <div class="diag-tile__content">
+              <svg class="diag-tile__icon" aria-hidden="true"><use href="#svc-ev"/></svg>
               <h3>EV Charger<br>Installations</h3>
               <span class="diag-tile__cta">View full details <span class="diag-tile__arrow">&rarr;</span></span>
             </div>
@@ -234,6 +249,7 @@
           <div class="diag-tile__overlay"></div>
           <div class="diag-tile__inner">
             <div class="diag-tile__content">
+              <svg class="diag-tile__icon" aria-hidden="true"><use href="#svc-eicr"/></svg>
               <h3>EICR Safety<br>Reports</h3>
               <span class="diag-tile__cta">View full details <span class="diag-tile__arrow">&rarr;</span></span>
             </div>
@@ -246,6 +262,7 @@
           <div class="diag-tile__overlay"></div>
           <div class="diag-tile__inner">
             <div class="diag-tile__content">
+              <svg class="diag-tile__icon" aria-hidden="true"><use href="#svc-fault"/></svg>
               <h3>Fault Finding<br>&amp; Repairs</h3>
               <span class="diag-tile__cta">View full details <span class="diag-tile__arrow">&rarr;</span></span>
             </div>
@@ -374,7 +391,7 @@
         <div class="quote__intro">
           <p class="eyebrow"><svg class="trace" aria-hidden="true"><use href="#trace"/></svg>Get in Touch &middot; Cumbria</p>
           <h2>Direct with Finn.<br>No middlemen.</h2>
-          <p class="muted">Build your job sheet on the right in 20 seconds, or contact Finn directly below for free fixed-price quotes across Cumbria.</p>
+          <p class="muted">Start your enquiry by choosing a service in the form, or contact Finn directly below for a free fixed-price quote across Cumbria.</p>
 
           <ul class="quote__guarantees">
             <li>
@@ -489,19 +506,15 @@
     </div>
   </footer>
 
-  <!-- Thumb-zone dock, mobile only -->
-  <div class="dock">
-    <a class="btn btn--red" href="tel:+447495333990">
+  <!-- Floating quick-contact buttons, mobile only -->
+  <nav class="dock" aria-label="Quick contact">
+    <a class="btn btn--red" href="tel:+447495333990" aria-label="Call Finn on 07495 333990" title="Call Finn">
       <svg class="ico" aria-hidden="true"><use href="#ico-phone"/></svg>
-      Call
     </a>
-    <a class="btn btn--wa" href="https://wa.me/447495333990" target="_blank" rel="noopener">
+    <a class="btn btn--wa" href="https://wa.me/447495333990" target="_blank" rel="noopener" aria-label="WhatsApp Finn" title="WhatsApp Finn">
       <svg class="ico" aria-hidden="true"><use href="#ico-wa"/></svg>
-      WhatsApp
     </a>
-    <a class="btn btn--dark" href="#quote">Quote</a>
-  </div>
-
-  <script src="site.js?v=179369"></script>
+  </nav>
+  <script src="site.js?v=179374"></script>
 </body>
 </html>
