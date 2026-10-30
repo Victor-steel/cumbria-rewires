@@ -188,10 +188,73 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .hero__bolt { position: absolute; z-index: 1; display: block; pointer-events: none; }
 .hero__bolt--v { top: -1px; bottom: -1px; left: -1px; width: clamp(165px, 15.5vw, 225px); height: calc(100% + 2px); }
 .hero__bolt--h { display: none; }
-.hero__tag {
-  position: absolute; right: 16px; bottom: 14px; z-index: 2;
-  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,.8); background: rgba(25,25,25,.65); padding: 4px 8px;
+/* Floating Google Review Badge on Hero Photo */
+.hero-review-badge {
+  box-sizing: border-box;
+  position: absolute;
+  right: clamp(16px, 2.8vw, 36px);
+  bottom: clamp(18px, 3vw, 38px);
+  z-index: 3;
+  max-width: min(340px, calc(100% - 32px));
+  background: rgba(16, 17, 20, 0.88);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 3px solid var(--red);
+  border-radius: 8px;
+  padding: 14px 16px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.48), 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+.hero-review-badge__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.hero-review-badge__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ECEEF2;
+}
+.hero-review-badge__glogo {
+  display: block;
+  flex-shrink: 0;
+}
+.hero-review-badge__stars {
+  color: #FBBC04;
+  font-size: 0.86rem;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.hero-review-badge__quote {
+  font-family: var(--body);
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #FFFFFF;
+  margin-block: 8px 6px;
+}
+.hero-review-badge__meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: #9CA0A6;
+  font-family: var(--mono);
+}
+.hero-review-badge__name {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.hero-review-badge__dot {
+  color: var(--red);
+  font-weight: 700;
 }
 
 /* Unified Standards Promise & Coverage Strip (Matches Hero Paper White) */
@@ -1109,6 +1172,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .hero__bolt--v { display: none; }
   .hero__bolt--h { display: block; top: -1px; left: -1px; right: -1px; width: calc(100% + 2px); height: clamp(64px, 14vw, 92px); }
   .hero__cta .btn { flex: 1 1 100%; }
+  .hero-review-badge { right: 14px; bottom: 14px; max-width: min(320px, calc(100% - 28px)); padding: 10px 14px; }
 
   .promise__inner { grid-template-columns: 1fr; }
 
@@ -1157,8 +1221,11 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .hero__note { font-size: 0.66rem; line-height: 1.4; letter-spacing: 0.04em; }
   .hero__media { height: clamp(210px, 58vw, 300px); margin-top: 0; }
   .hero__media img { object-position: center 54%; }
-  .hero__bolt--h { height: 48px; }
-  .hero__tag { font-size: 0.6rem; }
+  .hero-review-badge { left: 10px; right: 10px; bottom: 10px; max-width: none; padding: 7px 12px; }
+  .hero-review-badge__quote { font-size: 0.72rem; line-height: 1.35; margin-block: 4px 3px; overflow-wrap: break-word; }
+  .hero-review-badge__brand { font-size: 0.65rem; gap: 5px; }
+  .hero-review-badge__stars { font-size: 0.75rem; letter-spacing: 1px; }
+  .hero-review-badge__meta { font-size: 0.66rem; }
 
   .services-viewport__bar { padding-block: 42px 30px; }
   .services-viewport__bar-inner { gap: 16px; }
