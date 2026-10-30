@@ -142,10 +142,36 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 }
 .site-header__inner { height: 100%; display: flex; align-items: center; gap: clamp(16px, 1.7vw, 24px); position: relative; }
 .brand {
-  display: flex; align-items: center; flex: none;
-  width: 224px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: none;
+  width: clamp(260px, 20vw, 285px);
+  text-decoration: none;
+  line-height: 1;
 }
-.brand img { width: 100%; height: auto; }
+.brand__mark { display: block; width: 100%; line-height: 0; }
+.brand__mark img { display: block; width: 100%; height: auto; }
+.brand__sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+  font-family: var(--body);
+  font-size: clamp(8.5px, 0.72vw, 10px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.brand__dot {
+  color: var(--red);
+  font-weight: 700;
+  user-select: none;
+  padding-inline: 1px;
+}
 .nav { margin-left: auto; display: flex; gap: clamp(14px, 1.4vw, 22px); }
 .nav a { font-weight: 600; font-size: 0.94rem; color: rgba(255,255,255,.88); text-decoration: none; padding: 8px 0; position: relative; transition: color .18s ease; }
 .nav a:hover { color: #fff; }
@@ -1196,7 +1222,34 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 /* Footer */
 .footer { background: var(--charcoal); color: #fff; padding-top: clamp(56px, 7vw, 88px); }
 .footer__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1.2fr); gap: clamp(24px, 2.5vw, 36px); padding-bottom: 48px; }
-.footer__brand img { width: 190px; border-bottom: 2px solid var(--red); padding-bottom: 12px; }
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 230px;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 12px;
+}
+.footer__brand .brand__sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+  font-family: var(--body);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #D4D5D8;
+  text-transform: uppercase;
+  line-height: 1;
+}
+.footer__brand .brand__dot {
+  color: var(--red);
+  font-weight: 700;
+  user-select: none;
+  padding-inline: 1px;
+}
 .footer__h { font-family: var(--mono); font-weight: 500; font-style: normal; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
 .footer p { color: #D4D5D8; line-height: 1.6; font-size: 0.94rem; }
 .footer__phone { font-family: var(--display); font-style: italic; font-weight: 800; font-size: 1.65rem; text-decoration: none; color: #fff; display: block; }
@@ -1281,7 +1334,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   :root { --header-h: 64px; }
   .nav { display: none; }
   .site-header__inner { justify-content: space-between; }
-  .brand { width: 176px; }
+  .brand { width: clamp(210px, 58vw, 248px); }
   .header-actions { margin-left: auto; }
   .btn--header-wa { display: none; }
 
@@ -1326,7 +1379,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 @media (max-width: 560px) {
   :root { --pad: 20px; }
   .site-header__inner { gap: 12px; }
-  .brand { width: min(52vw, 184px); }
+  .brand { width: min(72vw, 240px); }
   .header-actions { display: none; }
 
   .hero__inner { padding-block: 34px 30px; }
@@ -1381,9 +1434,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   :root { --header-h: 82px; --pad: 22px; }
   body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
   .site-header__inner { gap: 12px; }
-  .brand { width: min(66vw, 248px); flex-direction: column; align-items: flex-start; gap: 6px; }
-  .brand { text-decoration: none; }
-  .brand::after { content: "CUMBRIA REWIRES"; color: #D4D5D8; font: 500 9px/1.2 var(--mono); letter-spacing: .2em; }
+  .brand { width: clamp(210px, 60vw, 252px); }
   .header-actions { display: none; }
   .hero:has(.hero__media) { display: block; min-height: 0; }
   .hero__inner { padding-block: 30px 24px; }
@@ -2605,7 +2656,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 
 @media (min-width: 861px) and (max-width: 1280px) {
   .btn--header-wa { display: none; }
-  .brand { width: 200px; }
+  .brand { width: clamp(240px, 22vw, 270px); }
 }
 
 @media (min-width: 861px) and (max-width: 1100px) {
@@ -2648,7 +2699,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 
 @media (max-width: 860px) {
   :root { --header-h: 76px; --pad: clamp(18px, 4vw, 28px); }
-  .brand { width: min(66vw, 224px); }
+  .brand { width: clamp(210px, 60vw, 252px); }
   .hero__inner { padding-block: 36px 28px; }
   .hero__cta .btn { font-size: .88rem; padding-inline: 10px; }
   .hero__cta .btn:first-child { white-space: nowrap; }
