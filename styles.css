@@ -774,35 +774,36 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 }
 
 /* FAQs (Light Warm Paper) */
-.faqs { padding-block: clamp(72px, 9vw, 120px); background: var(--paper); color: var(--ink); border-bottom: 2px solid var(--red); }
-.faqs__grid { display: grid; grid-template-columns: minmax(0, 4.2fr) minmax(0, 7.8fr); gap: clamp(32px, 6vw, 84px); align-items: start; }
+.faqs { padding-block: clamp(48px, 6vw, 84px); background: var(--paper); color: var(--ink); border-bottom: 2px solid var(--red); }
+.faqs__grid { display: grid; grid-template-columns: minmax(0, 4.2fr) minmax(0, 7.8fr); gap: clamp(32px, 5vw, 68px); align-items: start; }
 .faqs__head { position: sticky; top: calc(var(--header-h) + 40px); }
-.faqs__head h2 { margin-bottom: 16px; color: var(--ink); }
-.faqs__head .muted { max-width: 360px; color: var(--muted); }
-.faq-list, .faqs__grid > div:last-child { display: grid; gap: 14px; }
+.faqs__head h2 { margin-bottom: 12px; color: var(--ink); }
+.faqs__head .muted { max-width: 360px; color: var(--muted); font-size: 0.94rem; line-height: 1.55; }
+.faq-list, .faqs__grid > div:last-child { display: grid; gap: 8px; }
 .faq-item {
   background: #FFFFFF;
   border: 1px solid var(--line);
-  padding: 20px 22px;
+  padding: 13px 18px;
   border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
   transition: border-color .18s ease, box-shadow .18s ease;
 }
 .faq-item:hover {
   border-color: #B5B7BD;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
 }
 .faq-item[open] {
   border-left: 3px solid var(--red);
+  padding-bottom: 16px;
 }
 .faq-item summary {
-  font-family: var(--display); font-style: italic; font-weight: 700; font-size: 1.15rem; color: var(--ink);
-  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  font-family: var(--display); font-style: italic; font-weight: 700; font-size: 1.05rem; line-height: 1.28; color: var(--ink);
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 14px;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after { content: "+"; font-family: var(--mono); font-style: normal; font-size: 1.35rem; color: var(--red-deep); font-weight: 400; transition: transform .2s ease; }
+.faq-item summary::after { content: "+"; font-family: var(--mono); font-style: normal; font-size: 1.25rem; color: var(--red-deep); font-weight: 400; transition: transform .2s ease; line-height: 1; flex-shrink: 0; }
 .faq-item[open] summary::after { content: "−"; }
-.faq-item p { margin-top: 14px; font-size: 0.96rem; color: #4A4D53; line-height: 1.6; }
+.faq-item p { margin-top: 10px; font-size: 0.92rem; color: #4A4D53; line-height: 1.55; }
 
 /* Quote Section */
 .quote {
@@ -1350,8 +1351,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .trust__row.has-reveal li { opacity: 1; transform: none; animation: none; }
   .trust__row li { padding-bottom: 24px; }
   .trust__row li:last-child { padding-bottom: 0; }
-  .faqs__grid { gap: 24px; }
-  .faq-item summary { padding-block: 18px; font-size: 1rem; }
+  .faqs__grid { gap: 20px; }
+  .faq-item summary { padding-block: 2px; font-size: 0.98rem; }
   .quote__grid { gap: 26px; }
   .quote__intro, .quote__actions, .form, .qb-service-grid > *, .field { min-width: 0; }
   .quote__call, .quote__wa { padding: 16px; }
@@ -1505,7 +1506,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .service-steps p { line-height: 1.6; font-size: .96rem; }
 .service-faqs .muted { margin-top: 18px; }
 .service-faqs .muted a { color: var(--red-deep); }
-.service-faqs .faq-item p { padding-bottom: 20px; }
+.service-faqs .faq-item p { padding-bottom: 2px; }
 .service-form__label { font-weight: 700; font-size: 1.15rem; color: white; margin-bottom: 20px; }
 .service-form__note { color: #C4C6CC; font-size: .8rem; line-height: 1.5; margin-top: 14px; }
 .service-send { border-top: 1px solid #595B61; padding-top: 18px; margin-top: 20px; }

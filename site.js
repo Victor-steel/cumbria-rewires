@@ -500,3 +500,23 @@
 
   renderServices();
 })();
+
+// Exclusive accordion for FAQ details: opening one closes all other open questions
+(function () {
+  var faqContainers = document.querySelectorAll('.faqs, .service-faqs');
+  faqContainers.forEach(function (sec) {
+    var items = Array.prototype.slice.call(sec.querySelectorAll('details.faq-item'));
+    items.forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (item.open) {
+          items.forEach(function (other) {
+            if (other !== item && other.open) {
+              other.open = false;
+            }
+          });
+        }
+      });
+    });
+  });
+})();
+
