@@ -546,24 +546,6 @@
     document.getElementById('qb-mailto-btn').setAttribute('href', mailtoUrl);
     document.getElementById('qb-wa-btn').setAttribute('href', waUrl);
 
-    // Asynchronously submit lead to Netlify Forms backend
-    try {
-      var formData = new URLSearchParams();
-      formData.append('form-name', 'quote-enquiry');
-      formData.append('name', name);
-      formData.append('phone', phone);
-      formData.append('postcode', postcode);
-      formData.append('service', srv.name);
-      formData.append('message', specLines + (notes ? '\n\nNotes: ' + notes : ''));
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString()
-      }).catch(function (err) {
-        console.warn('Netlify form background submission error:', err);
-      });
-    } catch (e) {}
-
     goToStep(4);
   });
 
