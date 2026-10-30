@@ -1135,22 +1135,22 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
     align-items: center;
   }
   .quote .wrap {
-    max-width: none;
     width: 100%;
-    padding-inline: 0;
+    max-width: var(--max-w, 1240px);
+    margin-inline: auto;
+    padding-inline: var(--pad);
   }
   .quote__grid {
-    grid-template-columns: 1fr 1fr;
-    justify-content: normal;
-    gap: 0;
-    max-width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+    gap: clamp(24px, 3vw, 48px);
     align-items: center;
+    width: 100%;
   }
   .quote__intro {
-    max-width: 430px;
-    margin-left: auto;
-    margin-right: clamp(24px, 4vw, 64px);
-    padding-left: clamp(20px, 3.5vw, 48px);
+    max-width: 420px;
+    margin: 0;
+    padding: 0;
   }
   .quote__intro .eyebrow { margin-bottom: 8px; }
   .quote__intro h2 { font-size: clamp(1.6rem, 2.3vw, 2.1rem); line-height: 1.05; margin-bottom: 6px; }
@@ -1169,10 +1169,10 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .quote__card-badge { width: 34px; height: 34px; }
 
   .form {
-    max-width: 580px;
-    margin-left: clamp(24px, 4vw, 64px);
-    margin-right: auto;
-    padding-right: clamp(20px, 3.5vw, 48px);
+    max-width: 570px;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0;
     gap: 10px;
   }
   .qb { gap: 10px; }
