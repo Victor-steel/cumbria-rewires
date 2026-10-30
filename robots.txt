@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cumbria-rewires-1793138751.netlify.app/sitemap.xml
+Sitemap: https://fg-electrical.co.uk/sitemap.xml
