@@ -564,7 +564,7 @@
           clearTimeout(enterTimer);
           enterTimer = setTimeout(function () {
             qbEl.classList.remove('is-entering');
-          }, 760);
+          }, 1250);
         } else {
           clearTimeout(enterTimer);
           qbEl.classList.remove('is-visible', 'is-entering');
