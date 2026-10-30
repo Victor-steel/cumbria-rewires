@@ -81,6 +81,17 @@
     }
   }
   </script>
+
+  <!-- Google tag (gtag.js) - GA4 ready: uncomment and replace G-XXXXXXXXXX when ready -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -160,7 +171,10 @@
         </div>
       </div>
       <div class="hero__media hero__media--consumer-unit" aria-hidden="false">
-        <img src="assets/fg-consumer-unit.jpeg" width="1254" height="1254" alt="Close-up of a consumer unit with neatly routed wiring and protective devices" fetchpriority="high">
+        <picture>
+          <source srcset="assets/fg-consumer-unit.webp" type="image/webp">
+          <img src="assets/fg-consumer-unit.jpeg" width="1254" height="1254" alt="Close-up of a consumer unit with neatly routed wiring and protective devices" fetchpriority="high">
+        </picture>
         <svg class="hero__bolt hero__bolt--v" viewBox="0 0 220 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
           <defs>
             <linearGradient id="bolt-v" x1="0.8" y1="0" x2="0.2" y2="1">
@@ -671,7 +685,7 @@
       </div>
     </div>
     <div class="wrap footer__base">
-      <span>&copy; 2026 Cumbria Rewires &middot; FG Electrical. All rights reserved.</span>
+      <span>&copy; 2026 Cumbria Rewires &middot; FG Electrical. All rights reserved. &middot; <span style="opacity:0.85;">Privacy: Customer enquiry details are used solely to reply to requests and are never shared with third parties.</span></span>
       <a href="#top">Back to top &uarr;</a>
     </div>
   </footer>
