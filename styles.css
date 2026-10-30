@@ -2108,6 +2108,22 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 .btn .ico, .btn svg { transition: transform .18s ease; }
 
+/* ---- 1b. Main hero CTA buttons: restore original flat, square styling ---- */
+.hero__cta .btn {
+  border-radius: 2px;
+  background-image: none;
+  box-shadow: none;
+}
+.hero__cta .btn:hover {
+  box-shadow: none;
+  transform: none;
+}
+.hero__cta .btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+
 /* ---- 2. Quote builder service tiles: instrument plates --------------- */
 .qb-srv-btn {
   position: relative;
