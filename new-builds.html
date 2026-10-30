@@ -6,10 +6,14 @@
   <title>New Build Electrical Installations in Cumbria | FG Electrical</title>
   <meta name="description" content="Create an electrical layout around how you will use your new home, from early plans through to final handover. FG Electrical, Cumbria. Call 07495 333990.">
   <meta name="theme-color" content="#191919">
+  <link rel="canonical" href="https://cumbria-rewires-1793138751.netlify.app/new-builds.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,600;1,700;1,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=surge-10">
+  <link rel="stylesheet" href="styles.css?v=prod-1">
 </head>
 <body class="service-detail">
   <a class="skip" href="#main">Skip to content</a>
@@ -37,7 +41,14 @@
   <header class="site-header">
     <div class="wrap site-header__inner">
       <a class="brand" href="index.html#top" aria-label="FG Electrical, back to home">
-        <img src="assets/fg-electrical-logo.png?v=179261" width="851" height="129" alt="FG Electrical">
+        <span class="brand__mark"><img src="assets/fg-electrical-mark.png?v=179320" width="804" height="65" alt="FG Electrical"></span>
+        <span class="brand__sub" aria-hidden="true">
+          <span>DOMESTIC</span>
+          <span class="brand__dot">&middot;</span>
+          <span>COMMERCIAL</span>
+          <span class="brand__dot">&middot;</span>
+          <span>INDUSTRIAL</span>
+        </span>
       </a>
       <nav class="nav" aria-label="Main"><a href="index.html#services">&larr; All Services</a><a href="reviews.html">Reviews</a><a href="#whats-included">What’s Included</a><a href="#process">The Process</a><a href="#faqs">FAQs</a><a href="#quote">Get a Quote</a></nav>
       <div class="header-actions">
@@ -115,7 +126,9 @@
           </div>
         </div>
 
-        <form class="form" id="quote-form" data-service-form>
+        <form class="form" id="quote-form" name="service-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-service-form>
+          <input type="hidden" name="form-name" value="service-enquiry">
+          <p style="display:none"><label>Don’t fill this: <input name="bot-field"></label></p>
  <p class="service-form__label">Tell us what you need.</p>
  <div class="field"><label for="service">Service needed</label><select id="service" name="service"><option>Full House Rewires</option><option>Partial Rewires</option><option>Consumer Unit Upgrades</option><option>Extensions &amp; Renovations</option><option selected>New Build Electrical Installations</option><option>EV Charger Installations</option><option>EICR Safety Reports</option><option>Fault Finding &amp; Repairs</option></select></div>
  <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
@@ -131,7 +144,14 @@
   <footer class="footer">
     <div class="wrap footer__grid">
       <div class="footer__brand">
-        <img src="assets/fg-electrical-logo.png?v=179261" width="851" height="129" alt="FG Electrical" loading="lazy">
+        <span class="brand__mark"><img src="assets/fg-electrical-mark.png?v=179320" width="804" height="65" alt="FG Electrical" loading="lazy"></span>
+        <span class="brand__sub" aria-hidden="true">
+          <span>DOMESTIC</span>
+          <span class="brand__dot">&middot;</span>
+          <span>COMMERCIAL</span>
+          <span class="brand__dot">&middot;</span>
+          <span>INDUSTRIAL</span>
+        </span>
       </div>
       <div>
         <h2 class="footer__h">Direct Contact</h2>

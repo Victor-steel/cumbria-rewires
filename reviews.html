@@ -6,10 +6,36 @@
   <title>Customer Reviews & Feedback | Cumbria Rewires · FG Electrical</title>
   <meta name="description" content="Read 5.0-star customer reviews for full rewires, consumer unit upgrades, and electrical safety certification across Cumbria. Based in Carlisle. Call 07495 333990.">
   <meta name="theme-color" content="#191919">
+  <link rel="canonical" href="https://cumbria-rewires-1793138751.netlify.app/reviews.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/apple-touch-icon.png">
+
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Cumbria Rewires · FG Electrical">
+  <meta property="og:title" content="Customer Reviews &amp; Feedback | Cumbria Rewires · FG Electrical">
+  <meta property="og:description" content="Read 5.0-star customer reviews for full rewires, consumer unit upgrades, and electrical safety certification across Cumbria. Based in Carlisle. Call 07495 333990.">
+  <meta property="og:url" content="https://cumbria-rewires-1793138751.netlify.app/reviews.html">
+  <meta property="og:image" content="https://cumbria-rewires-1793138751.netlify.app/assets/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="FG Electrical - Cumbria Rewires Customer Reviews">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Customer Reviews &amp; Feedback | Cumbria Rewires · FG Electrical">
+  <meta name="twitter:description" content="Read 5.0-star customer reviews for full rewires, consumer unit upgrades, and electrical safety certification across Cumbria. Based in Carlisle. Call 07495 333990.">
+  <meta name="twitter:image" content="https://cumbria-rewires-1793138751.netlify.app/assets/og-preview.png">
+
+  <!-- Fonts & CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,600;1,700;1,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=reviews-1">
+  <link rel="stylesheet" href="styles.css?v=prod-1">
 </head>
 <body class="service-detail">
   <a class="skip" href="#main">Skip to content</a>
@@ -349,7 +375,9 @@
           </div>
         </div>
 
-        <form class="form" id="quote-form" data-service-form>
+        <form class="form" id="quote-form" name="service-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-service-form>
+          <input type="hidden" name="form-name" value="service-enquiry">
+          <p style="display:none"><label>Don’t fill this: <input name="bot-field"></label></p>
           <p class="service-form__label">Tell us what you need.</p>
           <div class="field">
             <label for="service">Service needed</label>
