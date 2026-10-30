@@ -2229,6 +2229,123 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 }
 .qb-srv-btn.is-selected::after { border-color: var(--red); }
 
+/* ---- 2b. Quote builder electrical power-on sequence ------------------ */
+.qb.has-reveal .qb__top {
+  position: relative;
+}
+.qb.has-reveal .qb__top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(229,64,80,.55) 0%, var(--red) 75%, #FF7A85 100%);
+  box-shadow: 0 0 10px rgba(229,64,80,.85), 0 0 4px rgba(255,90,104,.9);
+  clip-path: inset(-8px 100% -8px 0);
+}
+.qb.has-reveal.is-visible .qb__top::after {
+  animation: qb-busbar-surge .85s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+@keyframes qb-busbar-surge {
+  0% {
+    clip-path: inset(-8px 100% -8px 0);
+    opacity: 1;
+  }
+  70% {
+    clip-path: inset(-8px 0% -8px 0);
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(229,64,80,.95), 0 0 5px #FF6B78;
+  }
+  100% {
+    clip-path: inset(-8px 0% -8px 0);
+    opacity: 0.42;
+    box-shadow: 0 0 0 rgba(229,64,80,0);
+  }
+}
+
+.qb.has-reveal .qb-srv-btn {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px) scale(.985);
+  transition: opacity .38s cubic-bezier(.22,1,.36,1),
+              transform .38s cubic-bezier(.22,1,.36,1),
+              border-color .16s ease,
+              background-color .16s ease,
+              box-shadow .16s ease;
+}
+.qb.has-reveal.is-visible .qb-srv-btn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.qb.has-reveal.is-entering .qb-srv-btn:not(:hover) {
+  transition-delay: calc(var(--tile-i, 0) * 45ms + 40ms);
+}
+@media (hover: hover) {
+  .qb.has-reveal.is-visible .qb-srv-btn:hover {
+    transform: translateY(-1px) scale(1);
+    transition-delay: 0s;
+  }
+}
+
+/* Left breaker flash + live circuit sweep across each tile as it powers on */
+.qb.has-reveal .qb-srv-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 90, 104, 0.34) 0%,
+    rgba(229, 64, 80, 0.14) 32%,
+    rgba(229, 64, 80, 0) 75%
+  );
+  box-shadow: inset 3px 0 0 #FF6B78, inset 4px 0 14px rgba(229, 64, 80, 0.65);
+  opacity: 0;
+}
+.qb.has-reveal.is-visible .qb-srv-btn::before {
+  animation: qb-tile-surge .62s cubic-bezier(.22, 1, .36, 1) forwards;
+  animation-delay: calc(var(--tile-i, 0) * 45ms + 40ms);
+}
+@keyframes qb-tile-surge {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  28% {
+    opacity: 1;
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+/* Emblem spark as each breaker tile comes online */
+.qb.has-reveal.is-visible .qb-srv-btn__ico {
+  animation: qb-ico-spark .58s cubic-bezier(.22, 1, .36, 1) both;
+  animation-delay: calc(var(--tile-i, 0) * 45ms + 65ms);
+}
+@keyframes qb-ico-spark {
+  0% {
+    transform: scale(.86);
+    color: #FFFFFF;
+    filter: drop-shadow(0 0 0 rgba(255, 90, 104, 0));
+  }
+  42% {
+    transform: scale(1.14);
+    color: #FF6B78;
+    filter: drop-shadow(0 0 8px rgba(255, 90, 104, 0.95));
+  }
+  100% {
+    transform: scale(1);
+    color: var(--red);
+    filter: drop-shadow(0 0 0 rgba(255, 90, 104, 0));
+  }
+}
+
 /* ---- 3. Step 2 option pills: tactile toggle plates ------------------- */
 .qb-pill {
   border-radius: 3px;
@@ -2359,6 +2476,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 }
 @media (prefers-reduced-motion: reduce) {
   .btn, .qb-srv-btn, .qb-pill, .quote__call, .quote__wa, .review-mini, .review-card, .service-cards article { transition: none !important; transform: none !important; }
+  .qb.has-reveal .qb-srv-btn { opacity: 1 !important; transform: none !important; }
+  .qb.has-reveal .qb__top::after, .qb.has-reveal .qb-srv-btn::before, .qb.has-reveal .qb-srv-btn__ico { animation: none !important; }
 }
 
 /* Responsive spacing refinements: retain the existing FG palette and bolt layouts. */
@@ -2375,7 +2494,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .reviews-compact__grid > *, .footer__grid > *, .service-split > * { min-width: 0; }
 .footer a { overflow-wrap: anywhere; }
 .field-row label { min-height: 1.6em; }
-.qb-panel.is-active { gap: 18px; }
+.qb-panel.is-active { gap: clamp(13px, 1.8vh, 18px); }
 .qb-q-list { gap: 22px; }
 .qb-pills { grid-template-columns: repeat(auto-fit, minmax(min(100%, 155px), 1fr)); }
 .qb-pill { min-height: 48px; }

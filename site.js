@@ -309,9 +309,9 @@
   var statusEl = document.getElementById('form-status');
 
   function renderServices() {
-    serviceGrid.innerHTML = SERVICES.map(function (srv) {
+    serviceGrid.innerHTML = SERVICES.map(function (srv, idx) {
       return [
-        '<button type="button" class="qb-srv-btn" data-srv="' + srv.id + '">',
+        '<button type="button" class="qb-srv-btn" data-srv="' + srv.id + '" style="--tile-i:' + idx + '">',
         '  <span class="qb-srv-btn__top">',
         '    <span class="qb-srv-btn__id">' + srv.icon + '</span>',
         '    <span class="qb-srv-btn__arrow" aria-hidden="true">&rarr;</span>',
@@ -518,6 +518,28 @@
   });
 
   renderServices();
+
+  var qbEl = form.querySelector('.qb');
+  var quoteSec = form.closest('.quote') || form;
+  if (qbEl && 'IntersectionObserver' in window) {
+    qbEl.classList.add('has-reveal');
+    var enterTimer = null;
+    var qbObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          qbEl.classList.add('is-visible', 'is-entering');
+          clearTimeout(enterTimer);
+          enterTimer = setTimeout(function () {
+            qbEl.classList.remove('is-entering');
+          }, 760);
+        } else {
+          clearTimeout(enterTimer);
+          qbEl.classList.remove('is-visible', 'is-entering');
+        }
+      });
+    }, { threshold: 0.16 });
+    qbObserver.observe(quoteSec);
+  }
 })();
 
 // Exclusive accordion for FAQ details: opening one closes all other open questions
