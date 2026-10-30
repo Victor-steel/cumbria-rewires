@@ -1,0 +1,14 @@
+# Cumbria Rewires — Clean URLs and Redirects
+
+/reviews                /reviews.html                200
+/full-rewires           /full-rewires.html           200
+/partial-rewires        /partial-rewires.html        200
+/consumer-units         /consumer-units.html         200
+/eicr-reports           /eicr-reports.html           200
+/fault-finding          /fault-finding.html          200
+/ev-installations       /ev-installations.html       200
+/extensions-renovations /extensions-renovations.html 200
+/new-builds             /new-builds.html             200
+
+# Custom 404 page
+/*                      /404.html                    404
