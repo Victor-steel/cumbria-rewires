@@ -295,10 +295,12 @@
     serviceGrid.innerHTML = SERVICES.map(function (srv) {
       return [
         '<button type="button" class="qb-srv-btn" data-srv="' + srv.id + '">',
-        '  <span class="qb-srv-btn__top"><span class="qb-srv-btn__id">' + srv.icon + '</span></span>',
+        '  <span class="qb-srv-btn__top">',
+        '    <span class="qb-srv-btn__id">' + srv.icon + '</span>',
+        '    <span class="qb-srv-btn__arrow" aria-hidden="true">&rarr;</span>',
+        '  </span>',
         '  <span class="qb-srv-btn__name">' + srv.name + '</span>',
         '  <span class="qb-srv-btn__desc">' + srv.desc + '</span>',
-        '  <span class="qb-srv-btn__start">Start enquiry <span class="qb-srv-btn__arrow" aria-hidden="true">&rarr;</span></span>',
         '</button>'
       ].join('');
     }).join('');
