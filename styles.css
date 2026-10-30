@@ -2442,6 +2442,100 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   background-image: linear-gradient(180deg, #25282D, #1C1E21);
   box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 4px 16px rgba(0,0,0,.25);
 }
+
+/* ---- 6b. Reviews section electrical power-on cascade ------------------ */
+.reviews-compact.has-reveal .reviews-compact__badge {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .4s cubic-bezier(.22, 1, .36, 1), transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+.reviews-compact.has-reveal.is-visible .reviews-compact__badge {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .04s;
+}
+
+.reviews-compact.has-reveal .review-mini {
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(12px) scale(.985);
+  transition: opacity .42s cubic-bezier(.22, 1, .36, 1),
+              transform .42s cubic-bezier(.22, 1, .36, 1),
+              box-shadow .2s ease,
+              border-color .2s ease;
+}
+.reviews-compact.has-reveal.is-visible .review-mini {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.reviews-compact.has-reveal.is-entering .review-mini:not(:hover) {
+  transition-delay: calc(var(--rev-i, 0) * 85ms + 70ms);
+}
+@media (hover: hover) {
+  .reviews-compact.has-reveal.is-visible .review-mini:hover {
+    transform: translateY(-2px) scale(1);
+    transition-delay: 0s;
+  }
+}
+
+/* Red top-edge breaker surge as each review card powers on */
+.reviews-compact.has-reveal .review-mini::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--red) 0%, #FF6B78 60%, #FFFFFF 100%);
+  box-shadow: 0 0 12px rgba(229, 64, 80, 0.95), 0 0 4px #FF7A85;
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+  z-index: 2;
+}
+.reviews-compact.has-reveal.is-visible .review-mini::before {
+  animation: rev-card-surge .65s cubic-bezier(.22, 1, .36, 1) forwards;
+  animation-delay: calc(var(--rev-i, 0) * 85ms + 80ms);
+}
+@keyframes rev-card-surge {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  30% {
+    opacity: 1;
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+/* Stars sparkle as each review card energises */
+.review-mini__stars {
+  display: inline-block;
+}
+.reviews-compact.has-reveal.is-visible .review-mini__stars {
+  animation: rev-stars-spark .52s cubic-bezier(.22, 1, .36, 1) both;
+  animation-delay: calc(var(--rev-i, 0) * 85ms + 110ms);
+}
+@keyframes rev-stars-spark {
+  0% {
+    transform: scale(.92);
+    filter: drop-shadow(0 0 0 rgba(251, 188, 5, 0));
+  }
+  45% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 6px rgba(251, 188, 5, 0.85));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(251, 188, 5, 0));
+  }
+}
+
 /* Hero floating review badge: match the 3px system instead of 8px */
 .hero-review-badge { border-radius: 3px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 34px rgba(0,0,0,.48), 0 2px 6px rgba(0,0,0,.35); }
 /* Light review cards (reviews page) */
@@ -2478,6 +2572,10 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .btn, .qb-srv-btn, .qb-pill, .quote__call, .quote__wa, .review-mini, .review-card, .service-cards article { transition: none !important; transform: none !important; }
   .qb.has-reveal .qb-srv-btn { opacity: 1 !important; transform: none !important; }
   .qb.has-reveal .qb__top::after, .qb.has-reveal .qb-srv-btn::before, .qb.has-reveal .qb-srv-btn__ico { animation: none !important; }
+  .reviews-compact.has-reveal .reviews-compact__badge,
+  .reviews-compact.has-reveal .review-mini { opacity: 1 !important; transform: none !important; }
+  .reviews-compact.has-reveal .review-mini::before,
+  .reviews-compact.has-reveal.is-visible .review-mini__stars { animation: none !important; }
 }
 
 /* Responsive spacing refinements: retain the existing FG palette and bolt layouts. */

@@ -95,6 +95,39 @@
   rows.forEach(function (row) { rowObserver.observe(row); });
 })();
 
+// Electric cascade for Homepage Reviews Section (.reviews-compact)
+(function () {
+  var sec = document.querySelector('.reviews-compact');
+  if (!sec || !('IntersectionObserver' in window)) return;
+
+  var grid = sec.querySelector('.reviews-compact__grid');
+  if (!grid) return;
+
+  var cards = grid.querySelectorAll('.review-mini');
+  cards.forEach(function (c, idx) {
+    c.style.setProperty('--rev-i', idx);
+  });
+
+  sec.classList.add('has-reveal');
+  var enterTimer = null;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        sec.classList.add('is-visible', 'is-entering');
+        clearTimeout(enterTimer);
+        enterTimer = setTimeout(function () {
+          sec.classList.remove('is-entering');
+        }, 750);
+      } else {
+        clearTimeout(enterTimer);
+        sec.classList.remove('is-visible', 'is-entering');
+      }
+    });
+  }, { threshold: 0.18 });
+
+  observer.observe(sec);
+})();
+
 // Interactive 3-Step Quote Builder -> Sleek Structured Email & WhatsApp Job Sheet
 (function () {
   var form = document.getElementById('quote-form');
