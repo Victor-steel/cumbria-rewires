@@ -1,3 +1,20 @@
+// Keep floating contacts clear of action groups, the enquiry form and footer contacts.
+(function () {
+  var dock = document.querySelector('.dock');
+  if (!dock || !('IntersectionObserver' in window)) return;
+  var visibleAreas = new Set();
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) visibleAreas.add(entry.target);
+      else visibleAreas.delete(entry.target);
+    });
+    dock.classList.toggle('is-clear-of-content', visibleAreas.size > 0);
+  });
+  document.querySelectorAll('.hero-review-badge, .hero__cta, .service-hero__actions, .reviews-summary-bar, .reviews-leave-box, .quote, .footer').forEach(function (area) {
+    observer.observe(area);
+  });
+})();
+
 // Mini hero bolts next to section eyebrows: non-existent until you are on that specific section
 (function () {
   var bolts = Array.prototype.slice.call(document.querySelectorAll('.trace'));
@@ -521,4 +538,3 @@
     });
   });
 })();
-
