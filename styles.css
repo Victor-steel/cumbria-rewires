@@ -2067,3 +2067,208 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 
 
 
+
+/* =====================================================================
+   POLISH LAYER: buttons, tiles, inputs and review cards
+   Visual-only overrides (surface, edge light, shadow, state). No padding or
+   size changes, so layout and the full-screen #quote height are untouched.
+   Deliberately excludes .diagonal-deck / .diag-* / .mini-* (lightning-bolt tiles).
+   ===================================================================== */
+
+/* ---- 1. Action buttons: machined, with weight ------------------------ */
+.btn {
+  position: relative;
+  border-radius: 3px;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease,
+              transform .18s cubic-bezier(.2,.7,.2,1), box-shadow .18s ease;
+}
+/* Solid red family: top-edge light, bottom-edge shade, soft contact shadow */
+.btn--red, .btn--wa, .btn--header, .btn--header-wa {
+  background-image: linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 52%, rgba(0,0,0,.10) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.26), inset 0 -2px 0 rgba(0,0,0,.20), 0 1px 2px rgba(0,0,0,.28);
+}
+.btn--red:hover, .btn--wa:hover, .btn--header:hover, .btn--header-wa:hover {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22), inset 0 -2px 0 rgba(0,0,0,.24), 0 6px 18px rgba(229,64,80,.32);
+}
+.btn--dark {
+  background-image: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,0));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 1px 2px rgba(0,0,0,.3);
+}
+/* Outline family: crisp edge, fills on hover */
+.btn--line { box-shadow: inset 0 0 0 1px rgba(25,25,25,.06); }
+.btn--line:hover { box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 6px 18px rgba(196,42,60,.25); }
+.btn--line-white { box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+.btn--line-white:hover { box-shadow: 0 6px 18px rgba(255,255,255,.12); }
+/* Pressed: settles into the page */
+.btn:active {
+  transform: translateY(1px) scale(.99);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.35);
+  transition-duration: .06s;
+}
+.btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.btn .ico, .btn svg { transition: transform .18s ease; }
+
+/* ---- 2. Quote builder service tiles: instrument plates --------------- */
+.qb-srv-btn {
+  position: relative;
+  border-radius: 3px;
+  background-color: #1B1D21;
+  background-image: linear-gradient(180deg, #22252B 0%, #191B1F 100%);
+  border-color: rgba(255,255,255,.09);
+  border-left-color: rgba(229,64,80,.7);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 1px 2px rgba(0,0,0,.35);
+  transition: border-color .16s ease, background-color .16s ease, transform .16s cubic-bezier(.2,.7,.2,1), box-shadow .16s ease;
+}
+/* Registration mark in the bottom-right corner: blueprint detail */
+.qb-srv-btn::after {
+  content: ""; position: absolute; right: 6px; bottom: 6px; width: 7px; height: 7px;
+  border-right: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.2);
+  transition: border-color .16s ease;
+  pointer-events: none;
+}
+.qb-srv-btn:hover {
+  background-image: linear-gradient(180deg, #292C33 0%, #1E2024 100%);
+  border-color: rgba(229,64,80,.55);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 8px 20px rgba(0,0,0,.4), 0 0 0 1px rgba(229,64,80,.18);
+}
+.qb-srv-btn:hover::after { border-color: var(--red); }
+.qb-srv-btn:active { transform: translateY(0) scale(.99); box-shadow: inset 0 2px 5px rgba(0,0,0,.4); }
+.qb-srv-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.qb-srv-btn.is-selected {
+  background-image: linear-gradient(180deg, rgba(229,64,80,.22), rgba(229,64,80,.10));
+  border-color: var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 0 0 1px var(--red), 0 0 18px rgba(229,64,80,.22);
+}
+.qb-srv-btn.is-selected::after { border-color: var(--red); }
+
+/* ---- 3. Step 2 option pills: tactile toggle plates ------------------- */
+.qb-pill {
+  border-radius: 3px;
+  background-color: #1B1D21;
+  background-image: linear-gradient(180deg, #212429 0%, #1A1C20 100%);
+  border-color: rgba(255,255,255,.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 1px 2px rgba(0,0,0,.3);
+  transition: border-color .15s ease, background-color .15s ease, color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.qb-pill:hover {
+  background-image: linear-gradient(180deg, #282B31 0%, #1F2125 100%);
+  border-color: rgba(255,255,255,.34);
+}
+.qb-pill:active { transform: scale(.985); box-shadow: inset 0 2px 4px rgba(0,0,0,.4); }
+.qb-pill:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+.qb-pill.is-selected {
+  background-image: linear-gradient(180deg, rgba(229,64,80,.24), rgba(229,64,80,.12));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 0 14px rgba(229,64,80,.18);
+}
+/* Radio indicator: recessed ring, glowing dot when chosen */
+.qb-pill__check { background: rgba(0,0,0,.35); box-shadow: inset 0 1px 2px rgba(0,0,0,.5); }
+.qb-pill.is-selected .qb-pill__check { box-shadow: 0 0 8px rgba(229,64,80,.6); }
+.qb-pill.is-selected .qb-pill__check::after {
+  content: ""; position: absolute; inset: 3px; border-radius: 50%; background: #fff;
+}
+
+/* ---- 4. Inputs: recessed into the panel ------------------------------ */
+.field input, .field select, .field textarea {
+  border-radius: 3px;
+  background-color: #17181B;
+  border-color: rgba(255,255,255,.14);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,.04);
+}
+.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(255,255,255,.4); }
+.field input:focus, .field select:focus, .field textarea:focus {
+  background-color: #1C1E22;
+  border-color: var(--red);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.35), 0 0 0 3px rgba(229,64,80,.22);
+}
+
+/* ---- 5. Direct contact cards ----------------------------------------- */
+.quote__call {
+  background-color: #101113;
+  background-image: linear-gradient(135deg, #1B1C1F 0%, #0F1011 100%);
+  border: 1px solid rgba(255,255,255,.07);
+  border-left: 4px solid var(--red);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 6px 18px rgba(0,0,0,.22);
+  transition: background-color .18s ease, transform .16s cubic-bezier(.2,.7,.2,1), box-shadow .18s ease, border-color .18s ease;
+}
+.quote__call:hover {
+  background-color: #000;
+  border-color: rgba(229,64,80,.4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 10px 26px rgba(0,0,0,.32);
+}
+.quote__wa {
+  background-color: #FFFFFF;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(25,25,25,.05), 0 6px 18px rgba(25,25,25,.06);
+  transition: background .18s ease, border-color .18s ease, transform .16s cubic-bezier(.2,.7,.2,1), box-shadow .18s ease;
+}
+.quote__wa:hover {
+  border-color: rgba(229,64,80,.45);
+  box-shadow: inset 0 1px 0 #fff, 0 10px 24px rgba(25,25,25,.10);
+}
+.quote__card-badge {
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+  transition: box-shadow .18s ease, border-color .18s ease, background-color .18s ease;
+}
+.quote__call:hover .quote__card-badge, .quote__wa:hover .quote__card-badge {
+  border-color: var(--red); background: rgba(229,64,80,.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 0 14px rgba(229,64,80,.4);
+}
+
+/* ---- 6. Review boxes & content tiles --------------------------------- */
+/* Dark homepage reviews: lit top edge, quote mark, hover lift */
+.review-mini {
+  border-radius: 3px;
+  background-color: #1E2024;
+  background-image: linear-gradient(180deg, #25282D 0%, #1C1E21 100%);
+  border-color: rgba(255,255,255,.09);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 6px 18px rgba(0,0,0,.28);
+}
+.review-mini:hover { border-color: rgba(229,64,80,.4); box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 28px rgba(0,0,0,.4); }
+.review-mini__quote::before {
+  content: "\201C"; font-family: var(--display); font-weight: 800; font-size: 1.5rem;
+  line-height: 0; color: var(--red); vertical-align: -0.28em; margin-right: 3px;
+}
+.review-mini__tag { border-radius: 3px; }
+.reviews-compact__badge {
+  border-radius: 3px;
+  background-image: linear-gradient(180deg, #25282D, #1C1E21);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 4px 16px rgba(0,0,0,.25);
+}
+/* Hero floating review badge: match the 3px system instead of 8px */
+.hero-review-badge { border-radius: 3px; box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 14px 34px rgba(0,0,0,.48), 0 2px 6px rgba(0,0,0,.35); }
+/* Light review cards (reviews page) */
+.review-card {
+  border-radius: 3px;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FCFBF9 100%);
+  box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(25,25,25,.05), 0 8px 24px rgba(25,25,25,.06);
+}
+.review-card:hover { box-shadow: inset 0 1px 0 #fff, 0 2px 4px rgba(25,25,25,.06), 0 16px 36px rgba(25,25,25,.11); }
+/* "What's included" cards on service pages */
+.service-cards article {
+  border-radius: 3px;
+  background-image: linear-gradient(180deg, #FFFFFF 0%, #FCFBF9 100%);
+  box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(25,25,25,.05), 0 6px 18px rgba(25,25,25,.05);
+  transition: transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s ease;
+}
+.service-cards article:hover { box-shadow: inset 0 1px 0 #fff, 0 2px 4px rgba(25,25,25,.06), 0 14px 30px rgba(25,25,25,.10); }
+/* FAQ tiles */
+.faq-item { border-radius: 3px; box-shadow: inset 0 1px 0 #fff, 0 1px 3px rgba(25,25,25,.05); }
+.faq-item:hover { box-shadow: inset 0 1px 0 #fff, 0 6px 16px rgba(25,25,25,.08); }
+.faq-item[open] { box-shadow: inset 0 1px 0 #fff, 0 8px 22px rgba(25,25,25,.09); }
+.faq-item summary:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; border-radius: 2px; }
+
+/* Hover lifts only on devices that actually hover (no sticky taps on phones) */
+@media (hover: hover) {
+  .btn--red:hover, .btn--wa:hover, .btn--header:hover, .btn--header-wa:hover,
+  .btn--line:hover, .btn--line-white:hover, .btn--dark:hover { transform: translateY(-1px); }
+  .service-cards article:hover { transform: translateY(-2px); }
+}
+@media (hover: none) {
+  .qb-srv-btn:hover, .quote__call:hover, .quote__wa:hover, .review-mini:hover, .review-card:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .qb-srv-btn, .qb-pill, .quote__call, .quote__wa, .review-mini, .review-card, .service-cards article { transition: none !important; transform: none !important; }
+}
