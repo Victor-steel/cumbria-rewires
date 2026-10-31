@@ -143,7 +143,7 @@
       questions: [
         { key: 'Scope of work', options: ['Full house rewire', 'Partial / Extension', 'Not sure — need advice'] },
         { key: 'Property size', options: ['1–2 Bedrooms', '3 Bedrooms', '4 Bedrooms', '5+ Bedrooms'] },
-        { key: 'Occupancy', options: ['Empty / Before moving in', 'Currently lived in', 'Tenanted property'] }
+        { key: 'Project timing', options: ['Renovation in progress', 'Prior to moving in', 'Planning / Need survey'] }
       ]
     },
     {
