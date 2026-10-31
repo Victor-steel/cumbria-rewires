@@ -2750,3 +2750,187 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .reviews-compact__link { border-left: 0; padding-left: 0; min-height: 32px; }
   .qb-service-grid, .qb-pills, .qb-done-actions { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* -------------------------------------------------------------
+   FG Electrical Brand Intro Reveal ("Electric Ignition")
+   ------------------------------------------------------------- */
+html.intro-skipped .site-intro,
+@media (prefers-reduced-motion: reduce) {
+  .site-intro {
+    display: none !important;
+  }
+}
+
+.site-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: grid;
+  place-items: center;
+  background: #141415;
+  overflow: hidden;
+  pointer-events: auto;
+  user-select: none;
+  cursor: pointer;
+  will-change: transform, opacity;
+  transition: transform 0.52s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.35s ease;
+}
+
+.site-intro__backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 48%, rgba(229, 64, 80, 0.12) 0%, rgba(20, 20, 21, 0.98) 72%);
+  pointer-events: none;
+}
+
+.site-intro::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(229, 64, 80, 0) 0%, rgba(229, 64, 80, 0.85) 20%, #FF5A68 50%, rgba(229, 64, 80, 0.85) 80%, rgba(229, 64, 80, 0) 100%);
+  box-shadow: 0 0 18px rgba(229, 64, 80, 0.9), 0 0 36px rgba(229, 64, 80, 0.45);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.site-intro.is-dismissing::after {
+  opacity: 1;
+}
+
+.site-intro__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+  max-width: 90vw;
+  z-index: 1;
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.35s ease;
+}
+
+.site-intro.is-dismissing {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.site-intro.is-dismissing .site-intro__content {
+  transform: translateY(-20px);
+  opacity: 0.85;
+}
+
+.site-intro__emblem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.site-intro__halo {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(229, 64, 80, 0.55) 0%, rgba(229, 64, 80, 0.15) 50%, transparent 70%);
+  transform: scale(0.2);
+  opacity: 0;
+  pointer-events: none;
+  animation: intro-halo 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
+}
+
+.site-intro__symbol {
+  width: clamp(56px, 11vw, 74px);
+  height: auto;
+  aspect-ratio: 358 / 503;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.74) translateY(10px);
+  animation: intro-symbol-strike 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.06s forwards;
+}
+
+.site-intro__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: intro-brand-reveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.24s forwards;
+}
+
+.site-intro__mark {
+  width: clamp(200px, 44vw, 276px);
+  height: auto;
+  aspect-ratio: 804 / 65;
+  object-fit: contain;
+}
+
+.site-intro__sub {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1.5vw, 10px);
+  font-family: var(--mono);
+  font-size: clamp(0.6rem, 1.4vw, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.68);
+  text-transform: uppercase;
+}
+
+.site-intro__dot {
+  color: var(--red);
+  font-weight: 700;
+}
+
+@keyframes intro-symbol-strike {
+  0% {
+    opacity: 0;
+    transform: scale(0.72) translateY(12px);
+    filter: drop-shadow(0 0 0 rgba(229, 64, 80, 0));
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.06) translateY(-2px);
+    filter: drop-shadow(0 0 28px rgba(229, 64, 80, 0.95)) drop-shadow(0 0 52px rgba(229, 64, 80, 0.5));
+  }
+  75% {
+    transform: scale(0.98) translateY(1px);
+    filter: drop-shadow(0 0 18px rgba(229, 64, 80, 0.8));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 14px rgba(229, 64, 80, 0.65));
+  }
+}
+
+@keyframes intro-halo {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  30% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+@keyframes intro-brand-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

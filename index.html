@@ -35,7 +35,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,600;1,700;1,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=prod-4">
+  <link rel="stylesheet" href="styles.css?v=prod-5">
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var forceIntro = params.get('intro') === '1';
+        if (!forceIntro && sessionStorage.getItem('fg_intro_shown')) {
+          document.documentElement.classList.add('intro-skipped');
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Structured Data (Schema.org / JSON-LD) -->
   <script type="application/ld+json">
@@ -94,6 +105,27 @@
   -->
 </head>
 <body>
+  <!-- FG Electrical Brand Intro Reveal ("Electric Ignition") -->
+  <aside class="site-intro" id="site-intro" aria-label="Loading FG Electrical">
+    <div class="site-intro__backdrop" aria-hidden="true"></div>
+    <div class="site-intro__content">
+      <div class="site-intro__emblem">
+        <div class="site-intro__halo" aria-hidden="true"></div>
+        <img class="site-intro__symbol" src="assets/fg-plug-symbol.png?v=179430" width="358" height="503" alt="" aria-hidden="true">
+      </div>
+      <div class="site-intro__brand">
+        <img class="site-intro__mark" src="assets/fg-electrical-mark.png?v=179420" width="804" height="65" alt="FG Electrical">
+        <div class="site-intro__sub" aria-hidden="true">
+          <span>DOMESTIC</span>
+          <span class="site-intro__dot">&middot;</span>
+          <span>COMMERCIAL</span>
+          <span class="site-intro__dot">&middot;</span>
+          <span>INDUSTRIAL</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
   <a class="skip" href="#main">Skip to content</a>
 
   <!-- Reusable SVG symbols -->
@@ -714,6 +746,6 @@
       <svg class="ico" aria-hidden="true"><use href="#ico-wa"/></svg>
     </a>
   </nav>
-  <script src="site.js?v=surge-7"></script>
+  <script src="site.js?v=surge-8"></script>
 </body>
 </html>

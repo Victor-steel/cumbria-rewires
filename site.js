@@ -618,3 +618,52 @@
     }
   });
 })();
+
+// FG Electrical Brand Intro Reveal ("Electric Ignition")
+(function () {
+  var intro = document.getElementById('site-intro');
+  if (!intro) return;
+
+  var prefersReduced = false;
+  try {
+    prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (e) {}
+
+  var params = new URLSearchParams(window.location.search);
+  var forceIntro = params.get('intro') === '1';
+
+  if (prefersReduced) {
+    intro.remove();
+    return;
+  }
+
+  if (!forceIntro) {
+    try {
+      if (sessionStorage.getItem('fg_intro_shown')) {
+        intro.remove();
+        return;
+      }
+    } catch (e) {}
+  }
+
+  var dismissed = false;
+  function dismiss() {
+    if (dismissed) return;
+    dismissed = true;
+    try {
+      sessionStorage.setItem('fg_intro_shown', '1');
+    } catch (e) {}
+    intro.classList.add('is-dismissing');
+    setTimeout(function () {
+      if (intro.parentNode) intro.parentNode.removeChild(intro);
+    }, 550);
+  }
+
+  var autoTimer = setTimeout(dismiss, 880);
+
+  intro.addEventListener('click', function () {
+    clearTimeout(autoTimer);
+    dismiss();
+  });
+})();
+
