@@ -2937,70 +2937,252 @@ html.intro-skipped .site-intro,
 /* -------------------------------------------------------------
    Service Tiles "Electric Power-Up" Entrance Motion
    ------------------------------------------------------------- */
+/* -------------------------------------------------------------
+   Service Tiles "Lightning Bolt Strike" Entrance Motion
+   ------------------------------------------------------------- */
+
+/* Lightning Bolt Seam Strike Keyframes (GPU-accelerated top-to-bottom lightning strike) */
+@keyframes seam-lightning-strike {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+    filter: brightness(4.2) drop-shadow(0 0 16px #ffffff) drop-shadow(0 0 35px #ff2540) drop-shadow(0 0 60px #ff2540);
+  }
+  18% {
+    opacity: 1;
+    transform: scaleY(0.5);
+    filter: brightness(3.6) drop-shadow(0 0 20px #ffffff) drop-shadow(0 0 45px #ff2540);
+  }
+  34% {
+    opacity: 1;
+    transform: scaleY(1);
+    filter: brightness(3.0) drop-shadow(0 0 24px #ffffff) drop-shadow(0 0 50px #ff2540);
+  }
+  48% {
+    opacity: 0.8;
+    transform: scaleY(1);
+    filter: brightness(1.6) drop-shadow(0 0 14px rgba(229, 64, 80, 0.85));
+  }
+  64% {
+    opacity: 1;
+    transform: scaleY(1);
+    filter: brightness(2.6) drop-shadow(0 0 18px #ffffff) drop-shadow(0 0 40px #ff2540);
+  }
+  80% {
+    opacity: 0.9;
+    transform: scaleY(1);
+    filter: brightness(1.3) drop-shadow(0 0 16px rgba(229, 64, 80, 0.9));
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+    filter: drop-shadow(0 0 12px rgba(229, 64, 80, 0.85)) drop-shadow(0 0 26px rgba(229, 64, 80, 0.45));
+  }
+}
+
+/* Tile Background Electric Power-Up */
+@keyframes tile-electric-powerup {
+  0% {
+    opacity: 0.15;
+    filter: brightness(0.4) saturate(0.5);
+    transform: scale(1.05);
+  }
+  25% {
+    opacity: 1;
+    filter: brightness(1.7) contrast(1.15) saturate(1.1);
+    transform: scale(1.03);
+  }
+  45% {
+    opacity: 0.75;
+    filter: brightness(0.85) saturate(0.9);
+  }
+  65% {
+    opacity: 1;
+    filter: brightness(1.25) saturate(1.05);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+    transform: scale(1);
+  }
+}
+
+/* Tile Electric Surge Overlay */
+@keyframes overlay-electric-flash {
+  0% {
+    opacity: 0.92;
+  }
+  22% {
+    opacity: 0.2;
+  }
+  45% {
+    opacity: 0.78;
+  }
+  65% {
+    opacity: 0.45;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Service Icon Electric Spark Keyframes */
+@keyframes tile-icon-spark {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(12px);
+    filter: drop-shadow(0 0 0 rgba(229, 64, 80, 0));
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.22) translateY(-2px);
+    filter: brightness(2) drop-shadow(0 0 16px #ffffff) drop-shadow(0 0 24px #ff384e);
+  }
+  70% {
+    transform: scale(0.96) translateY(1px);
+    filter: drop-shadow(0 0 14px rgba(229, 64, 80, 0.9));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 10px rgba(229, 64, 80, 0.7));
+  }
+}
+
+/* Horizontal Row 2 Grid Current Sweep */
+@keyframes grid-current-sweep {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  30% {
+    transform: scaleX(0.6);
+    opacity: 1;
+    filter: brightness(2) drop-shadow(0 0 12px #ff3b4e) drop-shadow(0 0 20px #ffffff);
+  }
+  60% {
+    transform: scaleX(1);
+    opacity: 1;
+    filter: brightness(1.5) drop-shadow(0 0 10px #ff3b4e);
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0.4;
+    filter: drop-shadow(0 0 4px #ff3b4e);
+  }
+}
+
+/* Mobile Red Border Lightning Tracer */
+@keyframes mobile-edge-lightning {
+  0% {
+    top: 0;
+    height: 0;
+    opacity: 1;
+    filter: brightness(3);
+  }
+  48% {
+    top: 0;
+    height: 100%;
+    opacity: 1;
+    filter: brightness(2.5);
+  }
+  75% {
+    top: 50%;
+    height: 50%;
+    opacity: 0.8;
+  }
+  100% {
+    top: 100%;
+    height: 0;
+    opacity: 0;
+  }
+}
+
 /* Desktop Portal View (>= 1081px) */
 @media (min-width: 1081px) and (prefers-reduced-motion: no-preference) {
   .diagonal-deck.has-reveal .diag-tile__inner {
     opacity: 0;
-    transform: translateY(36px);
+    transform: translateY(32px);
     will-change: transform, opacity;
   }
 
   .diagonal-deck.has-reveal .diag-tile__icon {
-    transform: scale(0.6) translateY(12px);
+    transform: scale(0.55) translateY(12px);
     opacity: 0;
-  }
-
-  .diagonal-deck.has-reveal .diag-tile__bg {
-    opacity: 0.2;
-    transform: scale(1.08);
-  }
-
-  /* Lightning Bolt Seam Dividers */
-  .diagonal-deck.has-reveal .diag-seam {
-    opacity: 0.15;
-    transform: scaleY(0.7);
-    filter: drop-shadow(0 0 0 rgba(229, 64, 80, 0));
     will-change: transform, opacity, filter;
   }
 
-  /* Reveal Trigger State (.is-visible) — Transition happens forward here */
-  .diagonal-deck.has-reveal.is-visible .diag-tile__inner {
-    opacity: 1;
-    transform: translateY(0);
-    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
-    transition-delay: calc(var(--tile-i, 0) * 85ms + 80ms);
+  .diagonal-deck.has-reveal .diag-tile__bg {
+    opacity: 0.15;
+    transform: scale(1.05);
+    filter: brightness(0.4) saturate(0.5);
+    will-change: transform, opacity, filter;
   }
 
-  .diagonal-deck.has-reveal.is-visible .diag-tile__icon {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-    filter: drop-shadow(0 0 12px rgba(229, 64, 80, 0.75));
-    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, filter 0.5s ease;
-    transition-delay: calc(var(--tile-i, 0) * 85ms + 140ms);
+  /* Lightning Bolt Seam Dividers — primed for strike */
+  .diagonal-deck.has-reveal .diag-seam {
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top center;
+    will-change: transform, filter, opacity;
   }
 
-  .diagonal-deck.has-reveal.is-visible .diag-tile__bg {
-    opacity: 1;
-    transform: scale(1);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
-    transition-delay: calc(var(--tile-i, 0) * 85ms + 40ms);
-  }
-
+  /* Reveal Trigger State (.is-visible) — The Lightning Strikes! */
   .diagonal-deck.has-reveal.is-visible .diag-seam {
-    opacity: 1;
-    transform: scaleY(1);
-    filter: drop-shadow(0 0 16px rgba(229, 64, 80, 0.95)) drop-shadow(0 0 28px rgba(229, 64, 80, 0.45));
-    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, filter 0.6s ease;
+    animation: seam-lightning-strike 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .diagonal-deck.has-reveal.is-visible .diag-seam--1 {
-    transition-delay: 40ms;
+    animation-delay: 20ms;
   }
   .diagonal-deck.has-reveal.is-visible .diag-seam--2 {
-    transition-delay: 110ms;
+    animation-delay: 110ms;
   }
   .diagonal-deck.has-reveal.is-visible .diag-seam--3 {
-    transition-delay: 180ms;
+    animation-delay: 200ms;
+  }
+
+  /* Tiles Energize & Power Up */
+  .diagonal-deck.has-reveal.is-visible .diag-tile__bg {
+    animation: tile-electric-powerup 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--tile-i, 0) * 85ms + 40ms);
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-tile__overlay {
+    animation: overlay-electric-flash 0.6s ease forwards;
+    animation-delay: calc(var(--tile-i, 0) * 85ms + 30ms);
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-tile__icon {
+    animation: tile-icon-spark 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--tile-i, 0) * 85ms + 100ms);
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-tile__inner {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+    transition-delay: calc(var(--tile-i, 0) * 85ms + 90ms);
+  }
+
+  /* Row 2 Current Sweep along horizontal divider */
+  .diagonal-deck--row::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff3b4e, #ffffff, #ff3b4e, transparent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    z-index: 12;
+    pointer-events: none;
+  }
+
+  .diagonal-deck--row.is-visible::before {
+    animation: grid-current-sweep 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 30ms;
   }
 }
 
@@ -3008,17 +3190,43 @@ html.intro-skipped .site-intro,
 @media (max-width: 1080px) and (prefers-reduced-motion: no-preference) {
   .diagonal-deck.has-reveal .diag-tile {
     opacity: 0;
-    transform: translateY(28px) scale(0.97);
+    transform: translateY(26px) scale(0.97);
     box-shadow: 0 0 0 rgba(229, 64, 80, 0);
+    position: relative;
+    overflow: hidden;
     will-change: transform, opacity;
+  }
+
+  .diagonal-deck.has-reveal .diag-tile::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: #ffffff;
+    box-shadow: 0 0 14px #ff2540, 0 0 22px #ffffff;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
   }
 
   .diagonal-deck.has-reveal.is-visible .diag-tile {
     opacity: 1;
     transform: translateY(0) scale(1);
-    box-shadow: -4px 0 18px rgba(229, 64, 80, 0.35);
-    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s ease, box-shadow 0.5s ease;
-    transition-delay: calc(var(--tile-i, 0) * 85ms);
+    box-shadow: -4px 0 18px rgba(229, 64, 80, 0.4);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, box-shadow 0.5s ease;
+    transition-delay: calc(var(--tile-i, 0) * 75ms);
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-tile::after {
+    animation: mobile-edge-lightning 0.45s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+    animation-delay: calc(var(--tile-i, 0) * 75ms);
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-tile .diag-tile__icon {
+    animation: tile-icon-spark 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--tile-i, 0) * 75ms + 70ms);
   }
 }
 
