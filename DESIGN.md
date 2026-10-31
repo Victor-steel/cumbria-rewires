@@ -85,8 +85,8 @@ Never replace, omit, or alter these details without client confirmation:
 5. **Services Section (Full Desktop Viewport with Diagonal Panels):**
    - **Full-Screen Diagonal Deck:** 3 massive full-viewport panels for the 3 core services (Full Rewires, Partial Rewires, Consumer Units) spanning the desktop screen and divided by signature red diagonal lines (`#E54050`). Each panel includes turnaround badges, technical chips, warning sign callouts, interactive hover states, and direct quote pre-fill actions.
    - **Secondary Strip:** 4 compact technical cards for Extensions & Renovations, New Builds, EV Installations, and EICR Safety Reports.
-6. **The Rewire Process ("What to expect"):** Minimising disruption, power back on every evening, floorboard care, clean chasing.
+6. **The Rewire Process ("What to expect"):** Clear project planning, floorboard care, clean chasing, and full handover.
 7. **Accreditation & Qualifications:** NAPIT Registered, 2391-52 Inspection & Testing, Level 3 NVQ Electrotechnical, Fully Insured.
-8. **Homeowner FAQs:** Common questions on cost, living at home, mess, certification, and timescales.
+8. **Homeowner FAQs:** Common questions on cost, timescales, dust containment, certification, and property preparation.
 9. **Quote Form:** Clean enquiry docket pre-filling service selection, submitting to `finngraham87@gmail.com` via mailto with fallback.
 10. **Footer & Mobile Dock:** Thumb-friendly direct phone, WhatsApp, and quote actions.

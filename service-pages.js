@@ -31,3 +31,29 @@
     form.querySelector('[data-send-email]').focus();
   });
 })();
+
+// Privacy Modal Controller
+(function () {
+  var modal = document.getElementById('privacy-modal');
+  if (!modal) return;
+  document.querySelectorAll('[data-privacy-open]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      if (typeof modal.showModal === 'function') {
+        e.preventDefault();
+        modal.showModal();
+      }
+    });
+  });
+  document.querySelectorAll('[data-privacy-close]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (typeof modal.close === 'function') {
+        modal.close();
+      }
+    });
+  });
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal && typeof modal.close === 'function') {
+      modal.close();
+    }
+  });
+})();

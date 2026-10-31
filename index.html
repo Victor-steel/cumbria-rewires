@@ -685,10 +685,29 @@
       </div>
     </div>
     <div class="wrap footer__base">
-      <span>&copy; 2026 FG Electrical. All rights reserved. &middot; <span style="opacity:0.85;">Privacy: Customer enquiry details are used solely to reply to requests and are never shared with third parties.</span></span>
-      <a href="#top">Back to top &uarr;</a>
+      <span class="footer__copy">&copy; 2026 FG Electrical. All rights reserved.</span>
+      <div class="footer__base-links">
+        <a href="privacy.html" class="footer__link" data-privacy-open>Privacy Policy</a>
+        <span class="footer__sep" aria-hidden="true">&middot;</span>
+        <a href="#top" class="footer__link">Back to top &uarr;</a>
+      </div>
     </div>
   </footer>
+
+  <dialog id="privacy-modal" class="privacy-modal" aria-labelledby="privacy-modal-title">
+    <div class="privacy-modal__card">
+      <div class="privacy-modal__head">
+        <h3 id="privacy-modal-title">Privacy Policy</h3>
+        <button type="button" class="privacy-modal__close" data-privacy-close aria-label="Close privacy notice">&times;</button>
+      </div>
+      <div class="privacy-modal__body">
+        <p><strong>FG Electrical</strong> is committed to protecting your privacy.</p>
+        <p>Customer enquiry details provided via phone, WhatsApp, email, or our quote forms are used solely to reply to requests, provide estimates, and fulfill booked electrical services.</p>
+        <p>We never share, rent, or sell your personal information with third parties for marketing purposes.</p>
+        <p style="margin-top:14px;"><a href="privacy.html" style="color:var(--red);text-decoration:underline;font-weight:600;">Read full Privacy Policy &rarr;</a></p>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Floating quick-contact buttons, mobile only -->
   <nav class="dock" aria-label="Quick contact">
