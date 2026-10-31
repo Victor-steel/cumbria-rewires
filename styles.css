@@ -2934,3 +2934,94 @@ html.intro-skipped .site-intro,
   }
 }
 
+/* -------------------------------------------------------------
+   Service Tiles "Electric Power-Up" Entrance Motion
+   ------------------------------------------------------------- */
+/* Desktop Portal View (>= 1081px) */
+@media (min-width: 1081px) and (prefers-reduced-motion: no-preference) {
+  .diagonal-deck.has-reveal .diag-tile__inner {
+    opacity: 0;
+    transform: translateY(36px);
+    will-change: transform, opacity;
+  }
+
+  .diagonal-deck.has-reveal .diag-tile__icon {
+    transform: scale(0.6) translateY(12px);
+    opacity: 0;
+  }
+
+  .diagonal-deck.has-reveal .diag-tile__bg {
+    opacity: 0.2;
+    transform: scale(1.08);
+  }
+
+  /* Lightning Bolt Seam Dividers */
+  .diagonal-deck.has-reveal .diag-seam {
+    opacity: 0.15;
+    transform: scaleY(0.7);
+    filter: drop-shadow(0 0 0 rgba(229, 64, 80, 0));
+    will-change: transform, opacity, filter;
+  }
+
+  /* Reveal Trigger State (.is-visible) — Transition happens forward here */
+  .diagonal-deck.has-reveal.is-visible .diag-tile__inner {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+    transition-delay: calc(var(--tile-i, 0) * 85ms + 80ms);
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-tile__icon {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 12px rgba(229, 64, 80, 0.75));
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, filter 0.5s ease;
+    transition-delay: calc(var(--tile-i, 0) * 85ms + 140ms);
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-tile__bg {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+    transition-delay: calc(var(--tile-i, 0) * 85ms + 40ms);
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-seam {
+    opacity: 1;
+    transform: scaleY(1);
+    filter: drop-shadow(0 0 16px rgba(229, 64, 80, 0.95)) drop-shadow(0 0 28px rgba(229, 64, 80, 0.45));
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, filter 0.6s ease;
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-seam--1 {
+    transition-delay: 40ms;
+  }
+  .diagonal-deck.has-reveal.is-visible .diag-seam--2 {
+    transition-delay: 110ms;
+  }
+  .diagonal-deck.has-reveal.is-visible .diag-seam--3 {
+    transition-delay: 180ms;
+  }
+}
+
+/* Mobile & Tablet Card View (<= 1080px) */
+@media (max-width: 1080px) and (prefers-reduced-motion: no-preference) {
+  .diagonal-deck.has-reveal .diag-tile {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    box-shadow: 0 0 0 rgba(229, 64, 80, 0);
+    will-change: transform, opacity;
+  }
+
+  .diagonal-deck.has-reveal.is-visible .diag-tile {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: -4px 0 18px rgba(229, 64, 80, 0.35);
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s ease, box-shadow 0.5s ease;
+    transition-delay: calc(var(--tile-i, 0) * 85ms);
+  }
+}
+
+
+
+

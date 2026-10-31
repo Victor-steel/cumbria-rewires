@@ -95,6 +95,33 @@
   rows.forEach(function (row) { rowObserver.observe(row); });
 })();
 
+// Electric Power-Up Cascade for Homepage Service Tiles (.diagonal-deck)
+(function () {
+  var decks = document.querySelectorAll('.diagonal-deck');
+  if (!decks.length || !('IntersectionObserver' in window)) return;
+
+  decks.forEach(function (deck) {
+    deck.classList.add('has-reveal');
+    var tiles = deck.querySelectorAll('.diag-tile');
+    tiles.forEach(function (tile, tileIdx) {
+      tile.style.setProperty('--tile-i', tileIdx);
+    });
+  });
+
+  var deckObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        deckObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  decks.forEach(function (deck) {
+    deckObserver.observe(deck);
+  });
+})();
+
 // Electric cascade for Homepage Reviews Section (.reviews-compact)
 (function () {
   var sec = document.querySelector('.reviews-compact');
