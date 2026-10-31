@@ -142,23 +142,23 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 }
 .site-header .wrap {
   max-width: 100%;
-  padding-inline: clamp(20px, 3.5vw, 48px);
+  padding-inline: clamp(14px, 2vw, 28px);
 }
-.site-header__inner { height: 100%; display: flex; align-items: center; gap: clamp(16px, 1.7vw, 24px); position: relative; }
+.site-header__inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: clamp(14px, 1.5vw, 24px); position: relative; }
 .brand {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   flex: none;
-  width: clamp(290px, 22vw, 340px);
+  width: clamp(230px, 18.5vw, 275px);
   text-decoration: none;
   line-height: 1;
 }
 .brand__symbol {
   display: block;
-  flex: 0 0 clamp(42px, 3.2vw, 48px);
-  width: clamp(42px, 3.2vw, 48px);
-  height: clamp(42px, 3.2vw, 48px);
+  flex: 0 0 auto;
+  height: clamp(36px, 2.9vw, 42px);
+  width: auto;
   object-fit: contain;
 }
 .brand__text {
@@ -177,9 +177,9 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   width: 100%;
   margin-top: 5px;
   font-family: var(--body);
-  font-size: clamp(8px, 0.7vw, 9.5px);
+  font-size: clamp(7.5px, 0.65vw, 9px);
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   color: #FFFFFF;
   text-transform: uppercase;
   line-height: 1;
@@ -190,16 +190,16 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   user-select: none;
   padding-inline: 1px;
 }
-.nav { margin-left: auto; display: flex; gap: clamp(14px, 1.4vw, 22px); }
-.nav a { font-weight: 600; font-size: 0.94rem; color: rgba(255,255,255,.88); text-decoration: none; padding: 8px 0; position: relative; transition: color .18s ease; }
+.nav { margin-inline: auto; display: flex; align-items: center; gap: clamp(14px, 1.5vw, 26px); }
+.nav a { font-weight: 600; font-size: clamp(0.86rem, 0.95vw, 0.94rem); color: rgba(255,255,255,.88); text-decoration: none; padding: 8px 0; position: relative; transition: color .18s ease; }
 .nav a:hover { color: #fff; }
 .nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
 .nav a:hover::after { transform: scaleX(1); }
-.header-actions { display: flex; align-items: center; gap: 10px; }
-.btn--header { min-height: 44px; padding: 0 16px; background: var(--red); font-size: 0.92rem; }
+.header-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+.btn--header { min-height: 42px; padding: 0 16px; background: var(--red); font-size: 0.9rem; }
 .btn--header:hover { background: var(--red-deep); }
-.btn--header-wa { min-height: 44px; padding: 0 14px; background: var(--red); color: #fff; font-size: 0.92rem; }
-.btn--header-wa:hover { background: var(--red-deep); }
+.btn--header-wa { min-height: 42px; padding: 0 14px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.22); color: #fff; font-size: 0.9rem; }
+.btn--header-wa:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.45); color: #fff; }
 
 /* Hero */
 .hero {
@@ -1351,8 +1351,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   :root { --header-h: 64px; }
   .nav { display: none; }
   .site-header__inner { justify-content: space-between; }
-  .brand { width: min(84vw, 320px); gap: 10px; }
-  .brand__symbol { flex: 0 0 42px; width: 42px; height: 42px; }
+  .brand { width: clamp(210px, 34vw, 245px); gap: 6px; }
+  .brand__symbol { height: 36px; width: auto; }
   .header-actions { margin-left: auto; }
   .btn--header-wa { display: none; }
 
@@ -1397,8 +1397,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 @media (max-width: 560px) {
   :root { --pad: 20px; }
   .site-header__inner { gap: 12px; }
-  .brand { width: min(84vw, 290px); gap: 8px; }
-  .brand__symbol { flex: 0 0 38px; width: 38px; height: 38px; }
+  .brand { width: clamp(205px, 62vw, 238px); gap: 6px; }
+  .brand__symbol { height: 34px; width: auto; }
   .header-actions { display: none; }
 
   .hero__inner { padding-block: 34px 30px; }
@@ -1451,12 +1451,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 
 /* Phone and small-tablet layout. All desktop rules above remain unchanged. */
 @media (max-width: 860px) {
-  :root { --header-h: 82px; --pad: 22px; }
+  :root { --header-h: 70px; --pad: 22px; }
   body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
-  .site-header__inner { gap: 12px; }
-  .brand { width: min(84vw, 320px); gap: 10px; }
-  .brand__symbol { flex: 0 0 42px; width: 42px; height: 42px; }
-  .header-actions { display: none; }
   .hero:has(.hero__media) { display: block; min-height: 0; }
   .hero__inner { padding-block: 30px 24px; }
   .hero__copy { max-width: none; }
@@ -2675,17 +2671,20 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .review-card__author { flex-wrap: wrap; gap: 8px 16px; }
 .dock.is-clear-of-content { visibility: hidden; pointer-events: none; }
 
-@media (min-width: 861px) and (max-width: 1280px) {
+@media (min-width: 861px) and (max-width: 1180px) {
   .btn--header-wa { display: none; }
-  .brand { width: clamp(285px, 24vw, 325px); }
 }
 
-@media (min-width: 861px) and (max-width: 1100px) {
-  :root { --header-h: 124px; }
-  .site-header__inner { flex-wrap: wrap; align-content: center; gap: 8px 20px; }
-  .header-actions { margin-left: auto; }
-  .nav { order: 3; flex-basis: 100%; justify-content: space-between; margin: 0; }
-  .nav a { display: inline-flex; align-items: center; min-height: 44px; }
+@media (min-width: 861px) and (max-width: 1040px) {
+  .service-detail .nav a:last-child { display: none; }
+}
+
+@media (min-width: 861px) and (max-width: 980px) {
+  .brand { width: clamp(210px, 23vw, 240px); gap: 6px; }
+  .nav { gap: 12px; }
+  .nav a { font-size: 0.84rem; }
+  .btn--header .btn__long { display: none; }
+  .btn--header { padding: 0 12px; font-size: 0.86rem; }
 }
 
 @media (min-width: 861px) and (max-width: 1080px) {
@@ -2719,9 +2718,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 }
 
 @media (max-width: 860px) {
-  :root { --header-h: 76px; --pad: clamp(18px, 4vw, 28px); }
-  .brand { width: min(84vw, 320px); gap: 10px; }
-  .brand__symbol { flex: 0 0 42px; width: 42px; height: 42px; }
+  :root { --header-h: 68px; --pad: clamp(18px, 4vw, 28px); }
   .hero__inner { padding-block: 36px 28px; }
   .hero__cta .btn { font-size: .88rem; padding-inline: 10px; }
   .hero__cta .btn:first-child { white-space: nowrap; }
