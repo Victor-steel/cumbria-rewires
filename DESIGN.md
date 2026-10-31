@@ -39,8 +39,8 @@ spacing:
 - **Service Standard:** "Every job is carried out safely, efficiently and to a high standard, with a clean and tidy finish you can expect from a trusted, reputable electrical business."
 - **Tone & Voice:** Practical, reassuring, professional Cumbrian electrical contractor. Transparent about disruption, clean work, and safety certification.
 - **Signature Visuals & Logo:**
-  - Official Logo: `assets/fg-electrical-logo.png` (FG ELECTRICAL &middot; DOMESTIC . COMMERCIAL . INDUSTRIAL rendered in pure white with transparent background).
-  - High-contrast black plate: `assets/fg-electrical-white-on-black.png`.
+  - Header Logo Lockup: `assets/fg-plug-symbol.png` (red plug-and-lightning symbol) + `assets/fg-electrical-mark.png` (horizontal white wordmark) + DOMESTIC · COMMERCIAL · INDUSTRIAL subline.
+  - Footer Stacked Logo: `assets/fg-electrical-stacked.png` (red plug-and-lightning symbol above white FG ELECTRICAL and white service line, 100% transparent background).
   - Angular, stepped lightning-bolt split (matching the hero visual).
   - Circuit-trace wireline SVG motif used as section eyebrows and visual dividers.
   - Signal red (`#E54050`) on dark charcoal (`#19191A`) and warm paper (`#FAF8F5`).

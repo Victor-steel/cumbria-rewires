@@ -143,12 +143,26 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .site-header__inner { height: 100%; display: flex; align-items: center; gap: clamp(16px, 1.7vw, 24px); position: relative; }
 .brand {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 12px;
   flex: none;
-  width: clamp(260px, 20vw, 285px);
+  width: clamp(295px, 23vw, 345px);
   text-decoration: none;
   line-height: 1;
+}
+.brand__symbol {
+  display: block;
+  flex: 0 0 clamp(42px, 3.2vw, 48px);
+  width: clamp(42px, 3.2vw, 48px);
+  height: clamp(42px, 3.2vw, 48px);
+  object-fit: contain;
+}
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 .brand__mark { display: block; width: 100%; line-height: 0; }
 .brand__mark img { display: block; width: 100%; height: auto; }
@@ -159,7 +173,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   width: 100%;
   margin-top: 5px;
   font-family: var(--body);
-  font-size: clamp(8.5px, 0.72vw, 10px);
+  font-size: clamp(8px, 0.7vw, 9.5px);
   font-weight: 700;
   letter-spacing: 0.16em;
   color: #FFFFFF;
@@ -1227,29 +1241,12 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  width: 230px;
-  border-bottom: 2px solid var(--red);
-  padding-bottom: 12px;
+  width: 220px;
 }
-.footer__brand .brand__sub {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.footer__logo {
+  display: block;
   width: 100%;
-  margin-top: 5px;
-  font-family: var(--body);
-  font-size: 8.5px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: #D4D5D8;
-  text-transform: uppercase;
-  line-height: 1;
-}
-.footer__brand .brand__dot {
-  color: var(--red);
-  font-weight: 700;
-  user-select: none;
-  padding-inline: 1px;
+  height: auto;
 }
 .footer__h { font-family: var(--mono); font-weight: 500; font-style: normal; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
 .footer p { color: #D4D5D8; line-height: 1.6; font-size: 0.94rem; }
@@ -1350,7 +1347,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   :root { --header-h: 64px; }
   .nav { display: none; }
   .site-header__inner { justify-content: space-between; }
-  .brand { width: clamp(210px, 58vw, 248px); }
+  .brand { width: min(84vw, 320px); gap: 10px; }
+  .brand__symbol { flex: 0 0 42px; width: 42px; height: 42px; }
   .header-actions { margin-left: auto; }
   .btn--header-wa { display: none; }
 
@@ -1395,7 +1393,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 @media (max-width: 560px) {
   :root { --pad: 20px; }
   .site-header__inner { gap: 12px; }
-  .brand { width: min(72vw, 240px); }
+  .brand { width: min(84vw, 290px); gap: 8px; }
+  .brand__symbol { flex: 0 0 38px; width: 38px; height: 38px; }
   .header-actions { display: none; }
 
   .hero__inner { padding-block: 34px 30px; }
@@ -1451,7 +1450,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   :root { --header-h: 82px; --pad: 22px; }
   body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
   .site-header__inner { gap: 12px; }
-  .brand { width: clamp(210px, 60vw, 252px); }
+  .brand { width: min(84vw, 320px); gap: 10px; }
+  .brand__symbol { flex: 0 0 42px; width: 42px; height: 42px; }
   .header-actions { display: none; }
   .hero:has(.hero__media) { display: block; min-height: 0; }
   .hero__inner { padding-block: 30px 24px; }
@@ -1512,7 +1512,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   .qb-email-card__body { overflow-wrap: anywhere; }
   .footer { padding-top: 36px; }
   .footer__grid { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-bottom: 30px; }
-  .footer__brand img { width: 230px; }
+  .footer__brand { width: 210px; }
   .footer a { overflow-wrap: anywhere; }
   .dock { gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: var(--charcoal); border-top: 2px solid var(--red); }
   .dock .btn { min-height: 48px; padding: 8px 5px; font-size: .78rem; gap: 5px; background: transparent; color: white; border: 1px solid #595B61; }
@@ -2673,7 +2673,7 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 
 @media (min-width: 861px) and (max-width: 1280px) {
   .btn--header-wa { display: none; }
-  .brand { width: clamp(240px, 22vw, 270px); }
+  .brand { width: clamp(285px, 24vw, 325px); }
 }
 
 @media (min-width: 861px) and (max-width: 1100px) {
@@ -2716,7 +2716,8 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 
 @media (max-width: 860px) {
   :root { --header-h: 76px; --pad: clamp(18px, 4vw, 28px); }
-  .brand { width: clamp(210px, 60vw, 252px); }
+  .brand { width: min(84vw, 320px); gap: 10px; }
+  .brand__symbol { flex: 0 0 42px; width: 42px; height: 42px; }
   .hero__inner { padding-block: 36px 28px; }
   .hero__cta .btn { font-size: .88rem; padding-inline: 10px; }
   .hero__cta .btn:first-child { white-space: nowrap; }
