@@ -694,3 +694,30 @@
   });
 })();
 
+// Permanently remove any Netlify edge-injected badge or drawer
+(function () {
+  try {
+    localStorage.setItem('netlify-badge-hidden', 'true');
+    localStorage.setItem('netlify-feedback-hidden', 'true');
+  } catch (e) {}
+
+  function purgeNetlifyBadge() {
+    var targets = document.querySelectorAll(
+      'iframe#nl-badge-frame, iframe[title*="Netlify"], iframe[title*="Powered by Netlify"], #nl-badge-frame, .nl-badge, #netlify-drawer'
+    );
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i].parentNode) {
+        targets[i].parentNode.removeChild(targets[i]);
+      }
+    }
+  }
+
+  purgeNetlifyBadge();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', purgeNetlifyBadge);
+  }
+  window.addEventListener('load', purgeNetlifyBadge);
+  setTimeout(purgeNetlifyBadge, 500);
+  setTimeout(purgeNetlifyBadge, 1500);
+})();
+
