@@ -4,7 +4,7 @@ name: Cumbria-Rewires
 description: >-
   Lead-generation and preview site for Cumbria Rewires. Operated by FG Electrical
   (Finn Graham), NAPIT registered & fully insured. Specialising in full rewires,
-  partial rewires, consumer unit replacements, extensions, new builds, EV installations,
+  minor works, consumer unit replacements, extensions, new builds, EV installations,
   and EICRs across Cumbria.
   Brand: Exo 2 italic display, Figtree body, IBM Plex Mono accents, signal red
   and deep charcoal on warm paper, circuit-trace motifs, lightning bolt dividers.
@@ -59,7 +59,7 @@ Never replace, omit, or alter these details without client confirmation:
 - **Service Area:** Cumbria (display rule: "for the areas covered just say Cumbria")
 - **Services:**
   1. Full rewires
-  2. Partial rewires
+  2. Minor works
   3. Consumer unit replacements
   4. Extensions
   5. New builds
@@ -83,7 +83,7 @@ Never replace, omit, or alter these details without client confirmation:
 3. **Coverage Strip:** "Covering Cumbria", "Open from 8am every day", "NAPIT Registered & Fully Insured".
 4. **Service Standard Strip:** Clean tidy finish promise & professional guarantees.
 5. **Services Section (Full Desktop Viewport with Diagonal Panels):**
-   - **Full-Screen Diagonal Deck:** 3 massive full-viewport panels for the 3 core services (Full Rewires, Partial Rewires, Consumer Units) spanning the desktop screen and divided by signature red diagonal lines (`#E54050`). Each panel includes turnaround badges, technical chips, warning sign callouts, interactive hover states, and direct quote pre-fill actions.
+   - **Full-Screen Diagonal Deck:** 3 massive full-viewport panels for the 3 core services (Full Rewires, Minor Works, Consumer Units) spanning the desktop screen and divided by signature red diagonal lines (`#E54050`). Each panel includes turnaround badges, technical chips, warning sign callouts, interactive hover states, and direct quote pre-fill actions.
    - **Secondary Strip:** 4 compact technical cards for Extensions & Renovations, New Builds, EV Installations, and EICR Safety Reports.
 6. **The Rewire Process ("What to expect"):** Clear project planning, floorboard care, clean chasing, and full handover.
 7. **Accreditation & Qualifications:** NAPIT Registered, 2391-52 Inspection & Testing, Level 3 NVQ Electrotechnical, Fully Insured.

@@ -15,7 +15,7 @@ Related Cursor Rule:
 - **Phone:** `07495 333990` (`tel:+447495333990`)
 - **Hours:** 9:00am – 5:00pm
 - **Base & Region:** Carlisle, Cumbria
-- **Services:** Full rewires, partial rewires, consumer unit replacements
+- **Services:** Full rewires, minor works, consumer unit replacements
 - **Accreditation:** NAPIT accredited, installation certified, inspection & testing certified
 
 ## Running Local Preview

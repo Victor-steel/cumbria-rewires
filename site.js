@@ -137,11 +137,11 @@
     {
       id: 'rewire',
       num: '01',
-      name: 'Full / Partial Rewire',
+      name: 'Full Rewire / Minor Works',
       desc: 'House rewires, extensions & renovations',
       icon: '<svg class="qb-srv-btn__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z"/><path d="M13 10l-2.5 4h3L11 18"/></svg>',
       questions: [
-        { key: 'Scope of work', options: ['Full house rewire', 'Partial / Extension', 'Not sure — need advice'] },
+        { key: 'Scope of work', options: ['Full house rewire', 'Minor works / Extension', 'Not sure — need advice'] },
         { key: 'Property size', options: ['1–2 Bedrooms', '3 Bedrooms', '4 Bedrooms', '5+ Bedrooms'] },
         { key: 'Project timing', options: ['Renovation in progress', 'Prior to moving in', 'Planning / Need survey'] }
       ]
