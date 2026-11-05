@@ -202,25 +202,32 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .btn--header-wa:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.45); color: #fff; }
 
 /* Mobile Navigation Toggle Button */
+/* Mobile Navigation Toggle Button - Electric Industrial Switch */
 .menu-toggle {
   display: none;
   align-items: center;
   gap: 8px;
   min-height: 40px;
   height: 40px;
-  padding: 0 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 3px;
+  padding: 0 14px 0 12px;
+  background: radial-gradient(circle at 10% 50%, rgba(229, 64, 80, 0.22) 0%, rgba(14, 15, 18, 0.96) 90%);
+  border: 1px solid rgba(229, 64, 80, 0.55);
+  border-radius: 4px;
   color: #fff;
-  font-family: var(--body);
+  font-family: var(--head);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 14px rgba(229, 64, 80, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
   z-index: 95;
@@ -229,34 +236,95 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   outline: 2px solid var(--red);
   outline-offset: 2px;
 }
-.menu-toggle:active,
-.menu-toggle[aria-expanded="true"] {
-  background: rgba(229, 64, 80, 0.18);
-  border-color: var(--red);
-  color: #fff;
+.menu-toggle:active {
+  transform: scale(0.95);
 }
+
+/* Animated electric shimmer pulse along the button */
+.menu-toggle::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  transform: translateX(-150%);
+  animation: border-sweep 3.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+@keyframes border-sweep {
+  0%, 55% { transform: translateX(-150%); }
+  75%, 100% { transform: translateX(150%); }
+}
+
+/* Glowing Electric Bolt Icon */
+.menu-toggle__bolt {
+  width: 13px;
+  height: 15px;
+  color: var(--red);
+  filter: drop-shadow(0 0 6px rgba(229, 64, 80, 0.95));
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.menu-toggle:hover .menu-toggle__bolt,
+.menu-toggle:active .menu-toggle__bolt {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 9px #FF5A68);
+}
+
+.menu-toggle__label {
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+/* Custom High-Tech Switch Bars */
 .menu-toggle__icon {
   position: relative;
-  width: 16px;
+  width: 14px;
   height: 12px;
   display: block;
+  z-index: 1;
 }
 .menu-toggle__line {
   position: absolute;
   left: 0;
   width: 100%;
   height: 2px;
-  background: currentColor;
+  background: #FAF8F5;
   border-radius: 1px;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s ease, top 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.24s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s ease, top 0.24s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+  transform-origin: center;
 }
 .menu-toggle__line:nth-child(1) { top: 0; }
-.menu-toggle__line:nth-child(2) { top: 5px; }
+.menu-toggle__line:nth-child(2) { 
+  top: 5px; 
+  width: 75%; 
+  left: auto;
+  right: 0; 
+  background: var(--red);
+  box-shadow: 0 0 5px rgba(229, 64, 80, 0.85);
+}
 .menu-toggle__line:nth-child(3) { top: 10px; }
 
+/* ACTIVE OPEN STATE */
+.menu-toggle[aria-expanded="true"] {
+  background: linear-gradient(135deg, rgba(229, 64, 80, 0.38) 0%, rgba(20, 21, 24, 0.98) 100%);
+  border-color: #FF5A68;
+  box-shadow: 
+    0 0 20px rgba(229, 64, 80, 0.55),
+    inset 0 0 12px rgba(229, 64, 80, 0.3);
+}
+.menu-toggle[aria-expanded="true"] .menu-toggle__bolt {
+  transform: rotate(-15deg) scale(1.15);
+  color: #fff;
+  filter: drop-shadow(0 0 8px #fff);
+}
 .menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(1) {
   top: 5px;
   transform: rotate(45deg);
+  background: #fff;
+  box-shadow: 0 0 4px #fff;
 }
 .menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(2) {
   opacity: 0;
@@ -265,9 +333,11 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
 .menu-toggle[aria-expanded="true"] .menu-toggle__line:nth-child(3) {
   top: 5px;
   transform: rotate(-45deg);
+  background: #fff;
+  box-shadow: 0 0 4px #fff;
 }
 
-/* Mobile Navigation Drawer */
+/* Mobile Navigation Drawer - Deep Obsidian Glass */
 .mobile-menu {
   display: none;
   position: fixed;
@@ -275,14 +345,15 @@ h4 { font-weight: 700; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.2
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(13, 14, 17, 0.985);
-  -webkit-backdrop-filter: blur(24px);
-  backdrop-filter: blur(24px);
+  background-color: #0B0C0F;
+  background-image: radial-gradient(ellipse 90% 45% at 50% 0%, rgba(229, 64, 80, 0.16) 0%, transparent 75%);
+  -webkit-backdrop-filter: blur(28px);
+  backdrop-filter: blur(28px);
   border-top: 2px solid var(--red);
   z-index: 90;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 20px clamp(16px, 4vw, 24px) calc(88px + env(safe-area-inset-bottom));
+  padding: 22px clamp(16px, 4vw, 24px) calc(88px + env(safe-area-inset-bottom));
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
@@ -298,6 +369,17 @@ body.menu-open {
   touch-action: none;
 }
 
+/* Top neon tracer */
+.mobile-menu__trace {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FF5A68, #E54050, transparent);
+  box-shadow: 0 0 10px rgba(229, 64, 80, 0.85);
+}
+
 .mobile-menu__inner {
   display: flex;
   flex-direction: column;
@@ -307,15 +389,15 @@ body.menu-open {
 }
 .mobile-menu__section-label {
   font-family: var(--mono);
-  font-size: 0.64rem;
+  font-size: 0.65rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--red);
   text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
 }
 .mobile-menu__section-label::after {
   content: "";
@@ -326,13 +408,13 @@ body.menu-open {
 .mobile-menu__nav {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 .mobile-menu__link {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
+  padding: 13px 15px;
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 4px;
@@ -340,9 +422,27 @@ body.menu-open {
   text-decoration: none;
   font-family: var(--head);
   font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  transition: background 0.18s, border-color 0.18s, color 0.18s;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.18s ease;
+}
+.mobile-menu__link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--red);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.2s ease;
+}
+.mobile-menu__link:hover::before,
+.mobile-menu__link:active::before {
+  transform: scaleY(1);
 }
 .mobile-menu__link:hover,
 .mobile-menu__link:active {
@@ -356,11 +456,22 @@ body.menu-open {
   transition: transform 0.18s ease;
 }
 .mobile-menu__link:active .mobile-menu__link-arrow {
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 .mobile-menu__link--highlight {
-  background: linear-gradient(135deg, rgba(229, 64, 80, 0.18) 0%, rgba(20, 21, 24, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(229, 64, 80, 0.24) 0%, rgba(22, 23, 27, 0.95) 100%);
   border-color: var(--red);
+  box-shadow: 0 0 16px rgba(229, 64, 80, 0.25);
+}
+.mobile-menu__link--highlight::before {
+  transform: scaleY(1);
+}
+.mobile-menu__idx {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: 8px;
+  font-weight: 600;
 }
 .mobile-menu__rating {
   color: var(--gold);
@@ -382,24 +493,25 @@ body.menu-open {
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 3px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   line-height: 1.25;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition: all 0.16s ease;
 }
 .mobile-menu__service-chip:hover,
 .mobile-menu__service-chip:active {
-  background: rgba(229, 64, 80, 0.12);
+  background: rgba(229, 64, 80, 0.14);
   border-color: var(--red);
   color: #fff;
 }
 .mobile-menu__chip-dot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--red);
+  box-shadow: 0 0 5px rgba(229, 64, 80, 0.9);
   flex-shrink: 0;
 }
 
@@ -414,45 +526,49 @@ body.menu-open {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 50px;
+  min-height: 52px;
   padding: 0 16px;
-  background: var(--red);
+  background: linear-gradient(135deg, #E54050 0%, #B82234 100%);
   color: #fff;
-  border-radius: 3px;
+  border-radius: 4px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-  box-shadow: 0 4px 16px rgba(229, 64, 80, 0.35);
-  transition: background 0.18s;
+  font-family: var(--head);
+  font-weight: 800;
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 18px rgba(229, 64, 80, 0.4);
+  transition: transform 0.16s ease, background 0.18s ease;
 }
 .mobile-menu__btn-call:active {
-  background: var(--red-deep);
+  transform: scale(0.98);
 }
 .mobile-menu__btn-wa {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 50px;
+  min-height: 52px;
   padding: 0 16px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   color: #fff;
-  border-radius: 3px;
+  border-radius: 4px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-  transition: background 0.18s, border-color 0.18s;
+  font-family: var(--head);
+  font-weight: 800;
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+  transition: all 0.16s ease;
 }
 .mobile-menu__btn-wa:active {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(229, 64, 80, 0.14);
+  border-color: rgba(229, 64, 80, 0.45);
 }
 .mobile-menu__footer {
   text-align: center;
   color: rgba(255, 255, 255, 0.45);
   font-size: 0.72rem;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   line-height: 1.5;
   margin-top: 2px;
 }

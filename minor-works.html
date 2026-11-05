@@ -164,6 +164,7 @@
         </a>
       </div>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+        <svg class="menu-toggle__bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/></svg>
         <span class="menu-toggle__label">Menu</span>
         <span class="menu-toggle__icon" aria-hidden="true">
           <span class="menu-toggle__line"></span>
@@ -176,28 +177,29 @@
 
   <!-- Mobile Navigation Drawer -->
   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+    <div class="mobile-menu__trace" aria-hidden="true"></div>
     <div class="mobile-menu__inner">
       <div class="mobile-menu__group">
         <p class="mobile-menu__section-label">Main Navigation</p>
         <div class="mobile-menu__nav">
           <a class="mobile-menu__link mobile-menu__link--highlight" href="#quote">
-            <span>⚡ Request a Free Quote</span>
+            <span><span class="mobile-menu__idx">01</span>Request a Free Quote</span>
             <span class="mobile-menu__link-arrow">&rarr;</span>
           </a>
           <a class="mobile-menu__link" href="index.html#services">
-            <span>Electrical Services</span>
+            <span><span class="mobile-menu__idx">02</span>Electrical Services</span>
             <span class="mobile-menu__link-arrow">&rarr;</span>
           </a>
           <a class="mobile-menu__link" href="reviews.html">
-            <span>Google Reviews <span class="mobile-menu__rating">★ 5.0</span></span>
+            <span><span class="mobile-menu__idx">03</span>Google Reviews <span class="mobile-menu__rating">★ 5.0</span></span>
             <span class="mobile-menu__link-arrow">&rarr;</span>
           </a>
           <a class="mobile-menu__link" href="index.html#accreditation">
-            <span>Accreditation &amp; NAPIT</span>
+            <span><span class="mobile-menu__idx">04</span>Accreditation &amp; NAPIT</span>
             <span class="mobile-menu__link-arrow">&rarr;</span>
           </a>
           <a class="mobile-menu__link" href="#faqs">
-            <span>FAQs &amp; Pricing Advice</span>
+            <span><span class="mobile-menu__idx">05</span>FAQs &amp; Pricing Advice</span>
             <span class="mobile-menu__link-arrow">&rarr;</span>
           </a>
         </div>
