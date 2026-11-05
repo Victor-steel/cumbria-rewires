@@ -141,7 +141,6 @@
         </a>
       </div>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
-        <svg class="menu-toggle__bolt" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/></svg>
         <span class="menu-toggle__label">Menu</span>
         <span class="menu-toggle__icon" aria-hidden="true">
           <span class="menu-toggle__line"></span>
@@ -154,61 +153,72 @@
 
   <!-- Mobile Navigation Drawer -->
   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
-    <div class="mobile-menu__trace" aria-hidden="true"></div>
     <div class="mobile-menu__inner">
+      <div class="mobile-menu__status">
+        <span class="mobile-menu__status-live"><span class="mobile-menu__status-dot" aria-hidden="true"></span>Open 8am–8pm &middot; 7 Days</span>
+        <span class="mobile-menu__status-badge">NAPIT Approved</span>
+      </div>
+
       <div class="mobile-menu__group">
-        <p class="mobile-menu__section-label">Main Navigation</p>
+        <div class="mobile-menu__section-head">
+          <p class="mobile-menu__section-label">Navigation</p>
+        </div>
         <div class="mobile-menu__nav">
-          <a class="mobile-menu__link mobile-menu__link--highlight" href="#quote">
-            <span><span class="mobile-menu__idx">01</span>Request a Free Quote</span>
-            <span class="mobile-menu__link-arrow">&rarr;</span>
-          </a>
-          <a class="mobile-menu__link" href="index.html#services">
-            <span><span class="mobile-menu__idx">02</span>Electrical Services</span>
-            <span class="mobile-menu__link-arrow">&rarr;</span>
+          <a class="mobile-menu__link" href="index.html">
+            <span class="mobile-menu__link-main">Home</span>
+            <span class="mobile-menu__link-arrow" aria-hidden="true">&rarr;</span>
           </a>
           <a class="mobile-menu__link" href="reviews.html">
-            <span><span class="mobile-menu__idx">03</span>Google Reviews <span class="mobile-menu__rating">★ 5.0</span></span>
-            <span class="mobile-menu__link-arrow">&rarr;</span>
+            <span class="mobile-menu__link-main">Google Reviews</span>
+            <span class="mobile-menu__link-meta"><span class="mobile-menu__rating">&#9733; 5.0</span><span class="mobile-menu__link-arrow" aria-hidden="true">&rarr;</span></span>
           </a>
           <a class="mobile-menu__link" href="index.html#accreditation">
-            <span><span class="mobile-menu__idx">04</span>Accreditation &amp; NAPIT</span>
-            <span class="mobile-menu__link-arrow">&rarr;</span>
+            <span class="mobile-menu__link-main">Accreditation &amp; Standards</span>
+            <span class="mobile-menu__link-arrow" aria-hidden="true">&rarr;</span>
           </a>
           <a class="mobile-menu__link" href="index.html#faqs">
-            <span><span class="mobile-menu__idx">05</span>FAQs &amp; Pricing Advice</span>
-            <span class="mobile-menu__link-arrow">&rarr;</span>
+            <span class="mobile-menu__link-main">FAQs &amp; Pricing Guide</span>
+            <span class="mobile-menu__link-arrow" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>
 
       <div class="mobile-menu__group">
-        <p class="mobile-menu__section-label">Direct Service Pages</p>
+        <div class="mobile-menu__section-head">
+          <p class="mobile-menu__section-label">Electrical Services</p>
+          <a class="mobile-menu__section-action" href="index.html#services">View overview &rarr;</a>
+        </div>
         <div class="mobile-menu__services">
-          <a class="mobile-menu__service-chip" href="full-rewires.html"><span class="mobile-menu__chip-dot"></span>Full Rewires</a>
-          <a class="mobile-menu__service-chip" href="consumer-units.html"><span class="mobile-menu__chip-dot"></span>Consumer Units</a>
-          <a class="mobile-menu__service-chip" href="fault-finding.html"><span class="mobile-menu__chip-dot"></span>Fault Finding</a>
-          <a class="mobile-menu__service-chip" href="eicr-reports.html"><span class="mobile-menu__chip-dot"></span>EICR Reports</a>
-          <a class="mobile-menu__service-chip" href="ev-installations.html"><span class="mobile-menu__chip-dot"></span>EV Chargers</a>
-          <a class="mobile-menu__service-chip" href="minor-works.html"><span class="mobile-menu__chip-dot"></span>Minor Works</a>
-          <a class="mobile-menu__service-chip" href="extensions-renovations.html"><span class="mobile-menu__chip-dot"></span>Extensions</a>
-          <a class="mobile-menu__service-chip" href="new-builds.html"><span class="mobile-menu__chip-dot"></span>New Builds</a>
+          <a class="mobile-menu__service-chip mobile-menu__service-chip--wide" href="full-rewires.html"><span>Full House Rewires</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="mobile-menu__service-chip" href="partial-rewires.html"><span>Partial Rewires</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="mobile-menu__service-chip" href="consumer-units.html"><span>Consumer Units</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="mobile-menu__service-chip" href="fault-finding.html"><span>Fault Finding</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="mobile-menu__service-chip" href="eicr-reports.html"><span>EICR Reports</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="mobile-menu__service-chip" href="ev-installations.html"><span>EV Chargers</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="mobile-menu__service-chip" href="minor-works.html"><span>Minor Works</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="mobile-menu__service-chip" href="extensions-renovations.html"><span>Extensions</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="mobile-menu__service-chip" href="new-builds.html"><span>New Builds</span><span class="mobile-menu__chip-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
 
       <div class="mobile-menu__actions">
-        <a class="mobile-menu__btn-call" href="tel:+447495333990">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-phone"/></svg>
-          <span>Call 07495 333990</span>
+        <a class="mobile-menu__cta-quote" href="#quote">
+          <span>
+            Request a Free Quote
+            <span class="mobile-menu__cta-sub">Free survey &amp; clear scope across Cumbria</span>
+          </span>
+          <span aria-hidden="true">&rarr;</span>
         </a>
-        <a class="mobile-menu__btn-wa" href="https://wa.me/447495333990" target="_blank" rel="noopener">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg>
-          <span>WhatsApp Finn Graham</span>
-        </a>
-      </div>
-
-      <div class="mobile-menu__footer">
-        NAPIT Approved &middot; 2391-52 Certified &middot; Open from 8am Daily across Cumbria
+        <div class="mobile-menu__contact-row">
+          <a class="mobile-menu__btn-call" href="tel:+447495333990">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-phone"/></svg>
+            <span>07495 333990</span>
+          </a>
+          <a class="mobile-menu__btn-wa" href="https://wa.me/447495333990" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg>
+            <span>WhatsApp</span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>

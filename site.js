@@ -730,8 +730,23 @@
 
     var label = toggle.querySelector('.menu-toggle__label');
 
+    // Automatically highlight the active page in the mobile drawer
+    var path = window.location.pathname.split('/').pop() || 'index.html';
+    if (path === '') path = 'index.html';
+    menu.querySelectorAll('a[href]').forEach(function (link) {
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#') return;
+      var cleanHref = href.split('#')[0] || 'index.html';
+      var hasHash = href.indexOf('#') !== -1;
+      if (!hasHash && cleanHref === path) {
+        link.classList.add('is-current');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
     function openMenu() {
       toggle.setAttribute('aria-expanded', 'true');
+      menu.scrollTop = 0;
       menu.classList.add('is-open');
       document.body.classList.add('menu-open');
       if (label) label.textContent = 'Close';
@@ -754,10 +769,23 @@
       }
     });
 
-    // Close when tapping any link inside the menu
+    // Close when tapping any link inside the menu and ensure smooth hash scroll after unlocking body
     menu.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
+      link.addEventListener('click', function (e) {
+        var href = link.getAttribute('href') || '';
         closeMenu();
+        if (href.charAt(0) === '#' && href.length > 1) {
+          var target = document.getElementById(href.slice(1));
+          if (target) {
+            e.preventDefault();
+            requestAnimationFrame(function () {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              if (history.pushState) {
+                history.pushState(null, '', href);
+              }
+            });
+          }
+        }
       });
     });
 
@@ -769,7 +797,7 @@
       }
     });
 
-    // Close when tapping outside the menu content if clicking backdrop
+    // Close when tapping outside the menu content
     document.addEventListener('click', function (e) {
       if (toggle.getAttribute('aria-expanded') === 'true') {
         if (!menu.contains(e.target) && !toggle.contains(e.target)) {
@@ -792,5 +820,6 @@
     initMobileMenu();
   }
 })();
+
 
 
